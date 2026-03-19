@@ -1,0 +1,15 @@
+# Project: General
+
+## Changelog
+
+### 2026-03-16
+- Fixed n8n MCP connection issues for Claude Code.
+- Identified that Claude Code looks for MCP configuration in `~/.claude.json` (project section) instead of `settings.json`.
+- Migrated n8n HTTP MCP configuration from `~/.claude/settings.json` to the correct location using `claude mcp add`.
+- Verified connection status with `claude mcp list` (status: Connected).
+- Cleaned up redundant `mcpServers` entry from `~/.claude/settings.json`.
+- Deleted `n8n_MCP_TROUBLESHOOTING.md` after successful resolution.
+
+### 2026-03-15
+- Initialized project with `GEMINI.md`.
+- Created `n8n_MCP_GUIDE.md`: A comprehensive guide for connecting n8n instance-level MCP to Claude Code and Gemini CLI.

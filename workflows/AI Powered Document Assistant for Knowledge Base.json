@@ -1,0 +1,867 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "dataType": "binary",
+        "binaryMode": "specificField",
+        "options": {}
+      },
+      "id": "eeb2cbd3-edd1-4209-82cc-29532e56de72",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "position": [
+        1616,
+        1136
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "chunkOverlap": 100,
+        "options": {}
+      },
+      "id": "e0b5f0e9-d14a-4ab1-9681-bf43a5331985",
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "position": [
+        1696,
+        1264
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Phase B -> Chat + Retrieval Pipeline \n\n## (Telegram → Agent → Pinecone/Web → Telegram)\n\n## Trigger\n- **Telegram Trigger** (On Message Sent)\n\n## Steps\n\n### Main Agent (Gemini 2.5 Pro)\n- Acts as a company HR assistant\n- Follows strict tool policy\n- Memory (context window = 10)\n- Maintains chat continuity per user\n\n### Tools\n1. **Pinecone Vector Store (retrieval)**\n   - Tool name: `documents_tool`\n   - Searches rag-documents\n   - Top K = 5\n2. **Tavily Web Search**\n   - Used ONLY if documents don’t contain the answer\n   - Tool Policy inside Agent:\n     - ALWAYS search documents first\n     - If found → answer only from docs\n     - If not → search web with sources\n     - Never invent company policy\n\n### Additional Processes\n- **Sanitize Telegram Text** (Code Node):\n  - Removes markdown/bullets/escape chars\n  - Makes response Telegram-clean\n- **Send Telegram Message:**\n  - Sends final response to user.\n\n## ✅ Result:\nA grounded RAG chatbot that answers from company docs, with safe web fallback.",
+        "height": 1008,
+        "width": 1168,
+        "color": 7
+      },
+      "id": "3b2c5d97-4ec1-4231-8619-5b448ef48ef3",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2336,
+        208
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        2672,
+        384
+      ],
+      "id": "3ad97d77-faa4-4398-aecb-eac3daaf47a9",
+      "name": "Trigger On Message Sent",
+      "webhookId": "f96bb75c-c5b5-4b97-aa11-fe2515855821",
+      "credentials": {
+        "telegramApi": {
+          "id": "nhhy2T58QjUPeL6D",
+          "name": "Bot: RAG-based Document Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Phase A -> Smart Document Indexing Pipeline \n\n## Trigger\n\n- Cron (every 2 mins)\n- Polls a specific Google Drive folder continuously\n\n## Steps\n\n1. **Search File in Folder (Google Drive)**\n   - Fetches all files from the target folder with metadata\n\n2. **Loop Over Items**\n   - Processes files one by one\n\n3. **Set (Drive Fields)**\n   - Extracts:\n     - `driveFileId`\n     - `driveFileName`\n     - `driveModified`\n\n4. **Get row(s) in sheet (Google Sheets)**\n   - Checks if this file was indexed before\n   \n   **IF:** `FileId` Empty OR `File Modified`\n   \n   **Logic:**\n   - New file → index\n   - Same file unchanged → skip\n   - Same file modified → re-index\n\n5. **Download file (Google Drive)**\n   - Downloads binary document\n\n6. **Recursive Character Text Splitter**\n   - Chunk overlap: 100\n\n7. **Default Data Loader**\n   - Loads binary into document format\n\n8. **Embeddings Google Gemini (`text-embedding-004`)**\n   - Converts chunks to vectors\n\n9. **Pinecone Vector Store (Inserting)**\n   - Upserts vectors into index: `rag-documents`\n  \n10. **Aggregate**\n    - Waits for all chunks to finish\n    \n11. **Append or Update row in sheet**\n    - Stores:\n      | Field | Description |\n      |---------|--------------|\n      | `fileId` | ID of the file |\n      | `fileName` | Name of the file |\n      | `modifiedTime` | Last modified time |\n      | `indexedAt` | Time of indexing |\n  \ndrive becomes a self-healing vector database with version tracking.",
+        "height": 1344,
+        "width": 1312,
+        "color": 7
+      },
+      "id": "566333d8-84c2-4229-849a-b4d3608e3268",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1008,
+        208
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "You are a 'documents_tool'. Search and retrieve relevant company policy content from Pinecone.",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "rag-based-doc-assistant-with-knowledge-base",
+          "mode": "list",
+          "cachedResultName": "rag-based-doc-assistant-with-knowledge-base"
+        },
+        "topK": 5,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        2976,
+        688
+      ],
+      "id": "7335bf27-359b-4656-9fe3-8b5c4cecaf08",
+      "name": "Pinecone Vector Store (retrieval)",
+      "credentials": {
+        "pineconeApi": {
+          "id": "vOgkrcGQAjQsyuWr",
+          "name": "DP dhyan2815.ait API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Search the web for reliable sources to answer out-of-context questions.",
+        "query": "={{ $('Trigger On Message Sent').item.json.message.text }}",
+        "options": {}
+      },
+      "type": "@tavily/n8n-nodes-tavily.tavilyTool",
+      "typeVersion": 1,
+      "position": [
+        2864,
+        848
+      ],
+      "id": "5be47405-dc15-4fbb-a1d0-9026a7b9bd29",
+      "name": "Web Search",
+      "credentials": {
+        "tavilyApi": {
+          "id": "ALGSB6AHjE8EIZdq",
+          "name": "DP's Tavily"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Question: {{ $json.message.text }}",
+        "options": {
+          "systemMessage": "=You are a company HR assistant.\n\nYou have two tools:\n1) documents_tool = searches internal company documents.\n2) web_search_tool = searches the web.\n\nFollow this tool policy:\n\nA) ALWAYS call company_documents_tool first for every user question.\n\nB) If the answer is found clearly in the company documents:\n- Answer ONLY using the company documents.\n- Do NOT use web_search_tool.\n\nC) If the answer is NOT found in the company documents:\n- Call web_search_tool.\n- Use the web results to answer.\n- Prefer official and trustworthy sources (government sites, official company pages, documentation).\n- If sources conflict, say so and give the safest interpretation.\n\nD) Never invent company-specific policies when they are not in the documents.\nIf the user asks for official company policy and it’s missing, tell them to confirm with HR.\n\nE) When using web_search_tool, include 1–2 short source references (title + domain).\nKeep the final answer short and Telegram-friendly.\n\nFormatting rules:\n- Output MUST be plain text only.\n- Do NOT use Markdown, bullet symbols (*, -, •), numbering, or special formatting.\n- Write in short paragraphs separated by a blank line.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        2912,
+        384
+      ],
+      "id": "4aab6877-5fd9-42e2-a1fc-935b978c34b9",
+      "name": "Main Agent"
+    },
+    {
+      "parameters": {
+        "jsCode": "let text = $json.output || \"\";\n\n// Remove markdown-style bullets at line start\ntext = text.replace(/^\\s*[*•-]\\s+/gm, \"\");\n\n// Remove leftover escape slashes like \"\\.\"\ntext = text.replace(/\\\\([_.!*[\\]()~`>#+\\-=|{}])/g, \"$1\");\n\n// Trim extra whitespace\ntext = text.replace(/\\n{3,}/g, \"\\n\\n\").trim();\n\nreturn [{ output: text }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3264,
+        384
+      ],
+      "id": "55d9cb2a-fa0b-4bd7-974a-74ef01be433a",
+      "name": "Sanitize Telegram Text"
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "value": "1puIOSb6sVEOj3ZgBvHEQx3yfElI1TE7F",
+            "mode": "list",
+            "cachedResultName": "AI-Powered RAG-Based Document Assistant With Automated Knowledge Base Synchronization",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1puIOSb6sVEOj3ZgBvHEQx3yfElI1TE7F"
+          }
+        },
+        "options": {
+          "fields": [
+            "*"
+          ]
+        }
+      },
+      "id": "b2d8cdfd-bf05-4cde-8d68-d0bf95997099",
+      "name": "Search File in Folder",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        1664,
+        384
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "xxvOWNmgljKbjfAF",
+          "name": "dhyan.work Proj: Workflow A: n8n via docker"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Set (Drive Fields)').item.json.driveFileId }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2144,
+        640
+      ],
+      "id": "dfaf2ecc-a77b-4de8-b3c8-7fcb1e8852ff",
+      "name": "Download file",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "xxvOWNmgljKbjfAF",
+          "name": "dhyan.work Proj: Workflow A: n8n via docker"
+        }
+      },
+      "notes": "based on fileId"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1904,
+        384
+      ],
+      "id": "854a22bf-16b5-473d-9408-448ff77f0612",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "668b4c46-c1aa-4fe3-a72d-507a62d84120",
+              "name": "driveFileId",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "03aa1565-6f8a-4b80-8198-352dc27bd0ed",
+              "name": "driveModified",
+              "value": "={{ $json.modifiedTime }}",
+              "type": "string"
+            },
+            {
+              "id": "60a3ae58-9179-4215-ac8d-d76ded4e1ddb",
+              "name": "driveFileName",
+              "value": "={{ $json.originalFilename }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2144,
+        400
+      ],
+      "id": "3f263407-82e3-4c4e-9737-9f9737ebff8f",
+      "name": "Set (Drive Fields)",
+      "notesInFlow": true,
+      "notes": "fileName, fileId, modifiedTime\n"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.message.chat.id }}",
+        "contextWindowLength": 25
+      },
+      "id": "60c4deea-2d40-43d8-9294-a860a8846090",
+      "name": "Memory ",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        2736,
+        832
+      ],
+      "typeVersion": 1.3,
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6ec2992c-0d5c-46e2-acdd-3beebcc161e1",
+              "leftValue": "={{ $json.fileId }}",
+              "rightValue": "=0",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "72911746-e6f2-4360-9ce2-64a267fdf8a7",
+              "leftValue": "={{ Date.parse($json.driveModified) }}",
+              "rightValue": "={{ Date.parse($json.modifiedTime) }}",
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1904,
+        656
+      ],
+      "id": "0a46c214-61dd-40bd-9240-7fb019f03fc2",
+      "name": "File_Id Empty?"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Trigger On Message Sent').item.json.message.from.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3296,
+        640
+      ],
+      "id": "94c669d1-1388-4aa6-9124-5cdabe740466",
+      "name": "Send MSG back to TG",
+      "webhookId": "67c4bb3d-9459-4d6c-b772-89536b431bf6",
+      "credentials": {
+        "telegramApi": {
+          "id": "nhhy2T58QjUPeL6D",
+          "name": "Bot: RAG-based Document Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        1472,
+        384
+      ],
+      "id": "5b249f78-0997-4700-8b44-9af26efe4096",
+      "name": "Cron 5mins"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1yo0j3zJiaLnC-0RF_XCTXJ9V9P66kO_M6W9UtNxAarE",
+          "mode": "list",
+          "cachedResultName": "RAG based Doc Assistant: File Logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1yo0j3zJiaLnC-0RF_XCTXJ9V9P66kO_M6W9UtNxAarE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "indexed_files",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1yo0j3zJiaLnC-0RF_XCTXJ9V9P66kO_M6W9UtNxAarE/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "fileId",
+              "lookupValue": "={{ $json.driveFileId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1664,
+        656
+      ],
+      "id": "ff3f85b3-85ad-4c67-b4c6-a0feb78772c6",
+      "name": "Check File Indexed Before?",
+      "alwaysOutputData": true,
+      "executeOnce": false,
+      "notesInFlow": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "nXvoEzS8RibThDdA",
+          "name": "dhyan.work Proj: Workflow A: n8n via docker"
+        }
+      },
+      "notes": "Based on file_id"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-embedding-001"
+      },
+      "id": "3bf35a46-85dd-40a1-936d-60c9f90e4ea4",
+      "name": "text-embedding-001 ",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "position": [
+        1440,
+        1200
+      ],
+      "typeVersion": 1,
+      "notesInFlow": true,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "DCdz6x18Ug2KEMup",
+          "name": "dhyan.work.2815 Workflow B 1st"
+        }
+      },
+      "notes": "3072 dimensions"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "rag-based-doc-assistant-with-knowledge-base",
+          "mode": "list",
+          "cachedResultName": "rag-based-doc-assistant-with-knowledge-base"
+        },
+        "options": {
+          "pineconeNamespace": "={{ $('Set (Drive Fields)').item.json.driveFileName }}"
+        }
+      },
+      "id": "8a0eb3b1-0eda-4a0b-8bd1-47fedfeea164",
+      "name": "Vector Embeddings Generation",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "position": [
+        1536,
+        928
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "pineconeApi": {
+          "id": "vOgkrcGQAjQsyuWr",
+          "name": "DP dhyan2815.ait API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1yo0j3zJiaLnC-0RF_XCTXJ9V9P66kO_M6W9UtNxAarE",
+          "mode": "list",
+          "cachedResultName": "RAG based Doc Assistant: File Logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1yo0j3zJiaLnC-0RF_XCTXJ9V9P66kO_M6W9UtNxAarE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "indexed_files",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1yo0j3zJiaLnC-0RF_XCTXJ9V9P66kO_M6W9UtNxAarE/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "fileId": "={{ $('Set (Drive Fields)').item.json.driveFileId }}",
+            "fileName": "={{ $('Set (Drive Fields)').item.json.driveFileName }}",
+            "modifiedTime": "={{ DateTime.fromISO($('Set (Drive Fields)').item.json.driveModified).toFormat('dd LLL yyyy, hh:mm a') }}",
+            "indexedAt": "={{ DateTime.now().setZone('Asia/Kolkata').toFormat('dd LLL yyyy, hh:mm a') }}"
+          },
+          "matchingColumns": [
+            "fileId"
+          ],
+          "schema": [
+            {
+              "id": "fileId",
+              "displayName": "fileId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "fileName",
+              "displayName": "fileName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "modifiedTime",
+              "displayName": "modifiedTime",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "indexedAt",
+              "displayName": "indexedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2144,
+        928
+      ],
+      "id": "4fb3bee3-e8f9-4d6a-910d-4f918ec3a4fb",
+      "name": "Update record in Sheets",
+      "notesInFlow": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "nXvoEzS8RibThDdA",
+          "name": "dhyan.work Proj: Workflow A: n8n via docker"
+        }
+      },
+      "notes": "indexed_file with timestamp"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1888,
+        928
+      ],
+      "id": "8496cb64-e897-42e3-b6ec-5b5c72943ee3",
+      "name": "Aggregate Chunks"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3-flash-preview",
+        "options": {}
+      },
+      "id": "f8c0eec1-a469-483e-9c9d-873a5f941d20",
+      "name": "Gemini",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "position": [
+        2736,
+        608
+      ],
+      "typeVersion": 1,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "DCdz6x18Ug2KEMup",
+          "name": "dhyan.work.2815 Workflow B 1st"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-embedding-001"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        3072,
+        896
+      ],
+      "id": "f50900a6-d326-4c9b-a7e2-22a937f80aab",
+      "name": "text-embedding-001",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "DCdz6x18Ug2KEMup",
+          "name": "dhyan.work.2815 Workflow B 1st"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Vector Embeddings Generation",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger On Message Sent": {
+      "main": [
+        [
+          {
+            "node": "Main Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store (retrieval)": {
+      "ai_tool": [
+        [
+          {
+            "node": "Main Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Web Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "Main Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Agent": {
+      "main": [
+        [
+          {
+            "node": "Sanitize Telegram Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sanitize Telegram Text": {
+      "main": [
+        [
+          {
+            "node": "Send MSG back to TG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search File in Folder": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Vector Embeddings Generation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set (Drive Fields)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set (Drive Fields)": {
+      "main": [
+        [
+          {
+            "node": "Check File Indexed Before?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory ": {
+      "ai_memory": [
+        [
+          {
+            "node": "Main Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "File_Id Empty?": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cron 5mins": {
+      "main": [
+        [
+          {
+            "node": "Search File in Folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check File Indexed Before?": {
+      "main": [
+        [
+          {
+            "node": "File_Id Empty?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "text-embedding-001 ": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Vector Embeddings Generation",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vector Embeddings Generation": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Chunks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update record in Sheets": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Chunks": {
+      "main": [
+        [
+          {
+            "node": "Update record in Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Main Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "text-embedding-001": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store (retrieval)",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d897172dec72ff25a1a39c5cf55318155b7a532fc7459de95fd6728a197b6ad2"
+  }
+}
