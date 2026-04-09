@@ -11,135 +11,167 @@ This repository is a central hub for **n8n automation workflows**, **MCP (Model 
 - **Markdown**: For high-fidelity documentation and changelogs.
 - **Excalidraw**: For visual representations of complex logic and architecture.
 - **Node.js/npm**: Used for utility scripts and local validation.
+- **Python**: Used in `.skills/skills-mcp-builder/scripts/` for MCP server development.
 
 ---
 
-## 2. Common Commands
+## 2. Build, Lint, and Test Commands
 
-### 2.1 Environment & MCP Management
-- **List Configured Servers**: `claude mcp list` (Use to verify which n8n instances are connected).
-- **Add n8n MCP Server**:
-  ```bash
-  claude mcp add n8n-mcp --transport http https://<your-n8n-domain>/mcp-server/http --header "Authorization: Bearer <TOKEN>"
-  ```
-- **Connectivity Check**: Use `mcp__n8n-mcp__n8n_health_check` tool to verify instance status.
+### 2.1 Python Scripts (MCP Builder)
+- **Install Dependencies**: `pip install -r .skills/skills-mcp-builder/scripts/requirements.txt`
+- **Run Script**: `python .skills/skills-mcp-builder/scripts/<script_name>.py`
+- **Lint Python**: `ruff check .` or `ruff check <file.py>`
+- **Format Python**: `ruff format .`
+- **Run Single Test**: `pytest tests/<test_file>::<TestClass>::<test_method>` (if pytest configured)
+- **Run All Tests**: `pytest` or `pytest tests/`
 
-### 2.2 Validation & Linting
-Since this repository consists mainly of JSON and Markdown:
-- **Validate JSON Syntax**: `node -e "JSON.parse(require('fs').readFileSync('filename.json'))"`
-- **Markdown Consistency**: Ensure all headers follow `#`, `##`, `###` hierarchy without skipping levels.
-- **Check Workflow Metadata**: Ensure `.json` exports contain the `meta` object with correct `n8nVersion`.
+### 2.2 Node.js Scripts
+- **Install Dependencies**: `npm install` (in `.opencode/` directory)
+- **Validate JSON**: `node -e "JSON.parse(require('fs').readFileSync('filename.json'))"`
+- **Validate All Workflows**: `node -e "fs.readdirSync('workflows/').forEach(f => JSON.parse(fs.readFileSync('workflows/'+f)))"`
 
-### 2.3 Testing & Execution
+### 2.3 n8n Workflow Execution
 - **Execute Local Workflow**: If n8n is running locally, use `n8n execute:workflow --file <path>`.
 - **Trigger Remote Workflow**: Use `mcp__n8n-mcp__n8n_execute_workflow --id <workflow_id>`.
-- **Run Single Node**: Currently, node-level testing is performed via the n8n UI or by isolating nodes in temporary workflows.
+- **Run Single Node**: Via n8n UI or by isolating nodes in temporary workflows.
 
 ---
 
-## 3. Code & Workflow Standards
+## 3. Code Style Guidelines
 
-### 3.1 n8n Workflow Design (JSON)
-- **File Naming**: Use `[System Name] - [Function].json` (e.g., `Loan Consulting - Lead Intake.json`).
-- **Node Naming**: Every node must have a descriptive, unique name.
-  - *Bad*: `HTTP Request`, `Set 1`.
-  - *Good*: `HTTP: Fetch CRM Data`, `Set: Map Lead Fields`.
-- **Error Handling (Mandatory)**: 
-  - Every production workflow **must** be connected to an "Error Trigger" node.
-  - Implement retry logic on "HTTP Request" nodes (at least 3 retries with exponential backoff).
-- **Complexity**: If a workflow exceeds 20 nodes, consider breaking it into sub-workflows called via the "Execute Workflow" node.
-- **Variables**: Use `{{ $env.VARIABLE_NAME }}` for environment variables. Never hardcode sensitive values.
-
-### 3.2 Documentation (Markdown)
-- **Formatting**: Use GitHub-flavored Markdown. Use bolding for UI elements and backticks for technical terms.
-- **Changelog Protocol**: Update `GEMINI.md` with every major change. Format:
-  ```markdown
-  ### YYYY-MM-DD
-  - [Action Verb] Description of the change (e.g., "Modified Lead Intake workflow").
+### 3.1 Python Style
+- **Standard**: PEP 8 compliance. Use `ruff` for linting.
+- **Formatting**: 100 char line limit. Use `ruff format .`
+- **Imports**: Group in order: Standard Library, Third-Party, Local. Alphabetical within groups.
+  ```python
+  import os
+  import sys
+  from pathlib import Path
+  
+  import requests
+  from fastapi import FastAPI
+  
+  from . import local_module
   ```
-- **Relative Linking**: Use relative paths for internal references: `[MCP Guide](n8n_MCP_GUIDE.md)`.
+- **Types**: Required for function signatures and return types.
+  ```python
+  def process_data(items: list[str]) -> dict[str, int]:
+      ...
+  ```
+- **Naming**:
+  - Functions/variables: `snake_case`
+  - Classes: `PascalCase`
+  - Constants: `UPPER_SNAKE_CASE`
+  - Private methods: `_private_method`
+- **Error Handling**: Use `try/except` with explicit logging. Never bare `except:`.
+  ```python
+  try:
+      result = risky_operation()
+  except ValueError as e:
+      logger.error(f"Invalid value: {e}")
+      raise
+  ```
 
-### 3.3 Visual Diagrams (Excalidraw)
-- **Storage**: Place all diagrams in the `excalidraw diagrams/` directory.
-- **Naming**: Use `UPPER_SNAKE_CASE_DIAGRAM.excalidraw`.
-- **Color Coding**:
-  - **Blue**: Triggers/Entry points.
-  - **Green**: Core logic/Actions.
-  - **Yellow**: Conditional branches/Filters.
-  - **Red**: Error handling nodes.
+### 3.2 JavaScript/TypeScript Style
+- **Standard**: ES6+ modules. No `var`, only `const`/`let`.
+- **Formatting**: 100 char line limit.
+- **Imports**: Use named imports where possible.
+  ```javascript
+  import { readFileSync } from 'fs';
+  import { someFunction } from './local-module';
+  ```
+- **Types**: Use TypeScript types for all function signatures.
+- **Naming**:
+  - Functions/variables: `camelCase`
+  - Classes/Types: `PascalCase`
+  - Constants: `UPPER_SNAKE_CASE`
+- **Error Handling**: Use `try/catch` with explicit error logging.
+
+### 3.3 n8n Workflow Design (JSON)
+- **File Naming**: `[System Name] - [Function].json` (e.g., `Loan Consulting - Lead Intake.json`).
+- **Node Naming**: Descriptive, unique names (e.g., `HTTP: Fetch CRM Data`).
+- **Error Handling (Mandatory)**: Every production workflow must connect to an "Error Trigger" node.
+- **Retries**: Minimum 3 retries with exponential backoff on HTTP nodes.
+- **Complexity**: Break workflows exceeding 20 nodes into sub-workflows.
+- **Variables**: Use `{{ $env.VARIABLE_NAME }}`, never hardcode secrets.
 
 ---
 
-## 4. Coding Conventions (Python/JavaScript)
-If source code is added to the repository, follow these rules:
-- **Python**: PEP 8 compliance. Use `ruff` for linting. Typing is required (`from typing import ...`).
-- **JavaScript**: Standard style. Use ES6+ modules (`import/export`). No `var`, only `const/let`.
-- **Error Handling**: Use `try/except` or `try/catch` with explicit error logging.
-- **Imports**: Group imports (Standard Library, Third-Party, Local).
+## 4. Documentation Standards
+
+### 4.1 Markdown
+- Use GitHub-flavored Markdown.
+- Headers follow `#`, `##`, `###` hierarchy (no level skipping).
+- Bold UI elements, backticks for technical terms.
+- Update `GEMINI.md` for changes: `### YYYY-MM-DD\n- [Action Verb] Description`
+
+### 4.2 Excalidraw Diagrams
+- Store in `excalidraw diagrams/`
+- Naming: `UPPER_SNAKE_CASE_DIAGRAM.excalidraw`
+- Color coding: Blue (triggers), Green (actions), Yellow (conditions), Red (errors)
 
 ---
 
 ## 5. Repository Structure
-- `/`: Root directory containing workflows, primary docs (`CLAUDE.md`, `GEMINI.md`, `n8n_MCP_GUIDE.md`).
-- `/excalidraw diagrams/`: Visual representations of logic and system architecture.
-- `/.claude/`: Local agent configuration, including tool permissions and settings.
+- `/`: Root with workflows, docs (`CLAUDE.md`, `GEMINI.md`, `n8n_MCP_GUIDE.md`)
+- `/workflows/`: n8n workflow JSON exports
+- `/excalidraw diagrams/`: Visual architecture diagrams
+- `/.opencode/`: OpenCode configuration and utilities
+- `/.skills/`: Claude Code skill definitions
 
 ---
 
-## 6. Safety & Security Protocols
+## 6. Safety & Security
 
 ### 6.1 Secret Management
-- **CRITICAL**: Never commit `.env` files, API keys, or plain-text tokens.
-- **Scanning**: Run a `grep` for "Bearer", "API_KEY", or "SECRET" before pushing changes.
+- **CRITICAL**: Never commit `.env`, API keys, or plain-text tokens.
+- **Scan**: Run `grep` for "Bearer", "API_KEY", "SECRET" before pushing.
 
 ### 6.2 Destructive Actions
-- **No Deletions**: Do not delete n8n workflows or documents unless explicitly requested by the user.
-- **Version Control**: When editing a workflow, create a backup file (e.g., `filename.json.bak`) before modification if not using Git.
+- Do not delete workflows or documents without explicit user request.
+- Create backups (`.bak`) before modifying JSON if not using Git.
 
-### 6.3 State Verification
-- After modifying a JSON file, always run a JSON parse check to ensure validity.
-- After updating MCP settings, run `claude mcp list` to ensure the server is still connected.
+### 6.3 Verification
+- After JSON edits, validate syntax.
+- After MCP updates, run `claude mcp list` to verify connection.
 
 ---
 
-## 7. Interaction Guidelines for Agents
-- **Tone**: Professional, technical, and concise.
-- **Response Length**: Keep text descriptions under 5 lines unless explaining complex architecture.
-- **Proactiveness**: 
-  - If a workflow change is made, offer to update the relevant documentation.
-  - If an error is detected in a JSON file, fix it immediately.
-- **Clarity**: If a user request is ambiguous regarding which n8n instance to target, ask for clarification.
+## 7. Interaction Guidelines
+- **Tone**: Professional, technical, concise.
+- **Response Length**: Under 5 lines unless explaining complex architecture.
+- **Proactiveness**: Offer to update docs after workflow changes.
+- **Clarification**: Ask if target n8n instance is ambiguous.
 
 ---
 
 ## 8. Agent-Specific Tool Usage
-- **MCP Preferred**: Always prefer `mcp__n8n` tools for real-time interaction with the n8n environment over static file editing when possible.
-- **Context Search**: Use `grep` and `glob` extensively to find relevant nodes or documentation before proposing changes.
+- Prefer `mcp__n8n` tools over static file editing when possible.
+- Use `grep`/`glob` to find relevant context before proposing changes.
 
 ---
 
-## 9. Version Control & Git Guidelines
-Even if the current repository state is documentation-heavy, follow these Git practices:
-- **Commit Messages**: Use imperative mood (e.g., "Add Lead Intake workflow" NOT "Added...").
-- **Atomic Commits**: Keep changes small and focused. One workflow or one doc change per commit.
-- **Branching**: Use feature branches for major workflow overhauls (e.g., `feature/crm-integration`).
-- **Review**: Before committing, use `git diff` to ensure no accidental changes to sensitive JSON fields.
+## 9. Git Guidelines
+- **Commits**: Imperative mood (e.g., "Add Lead Intake workflow").
+- **Atomic Commits**: One workflow or doc change per commit.
+- **Branching**: Feature branches for major changes (`feature/crm-integration`).
+- **Review**: Use `git diff` before committing to check for secrets.
 
-## 10. External Resources & References
-Agents should refer to these for specific technical details:
-- **n8n Documentation**: [docs.n8n.io](https://docs.n8n.io)
+---
+
+## 10. External References
+- **n8n Docs**: [docs.n8n.io](https://docs.n8n.io)
 - **MCP Protocol**: [modelcontextprotocol.io](https://modelcontextprotocol.io)
-- **Project Guide**: Refer to `n8n_MCP_GUIDE.md` for specific connection strings and setup steps.
+- **Project Guide**: `n8n_MCP_GUIDE.md` for connection strings
 
 ---
 
-## 11. Advanced n8n Development Patterns
-When scaling the "Loan Consulting System" or similar complex logic, prioritize:
-- **Modular Workflows**: Use the "Execute Workflow" node to call sub-workflows instead of building massive monolithic flows.
-- **Dynamic Expressions**: Use JavaScript within expressions to handle complex logic: `{{ $json.data.map(i => i.id).join(",") }}`.
-- **Global Data Persistence**: Use the "HTTP Request" node to call a central database or CRM for state management across executions.
-- **AI-Native Nodes**: Prefer using the "AI Agent" or "Basic LLM Chain" nodes in n8n for tasks requiring natural language understanding.
+## 11. Advanced Patterns
+- **Modular Workflows**: Use "Execute Workflow" node for sub-workflows.
+- **Dynamic Expressions**: JavaScript in expressions: `{{ $json.data.map(i => i.id).join(",") }}`
+- **Global State**: Use HTTP nodes to call central database/CRM.
+- **AI-Native Nodes**: Prefer "AI Agent" or "Basic LLM Chain" for NLP tasks.
 
 ---
-*Last Updated: 2026-03-18*
+*Last Updated: 2026-04-09*
 *Targeted Audience: AI Coding Agents (Claude Code, Gemini CLI, etc.)*
