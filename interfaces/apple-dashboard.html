@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard — Apple Design</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --black: #000000;
+            --light-gray: #f5f5f7;
+            --near-black: #1d1d1f;
+            --apple-blue: #0071e3;
+            --link-blue: #0066cc;
+            --white: #ffffff;
+            --black-80: rgba(0, 0, 0, 0.8);
+            --black-48: rgba(0, 0, 0, 0.48);
+            --dark-surface-1: #272729;
+            --dark-surface-2: #262628;
+            --dark-surface-3: #28282a;
+            --button-active: #ededf2;
+            --card-shadow: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px;
+            --focus-ring: #0071e3;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: -0.374px;
+            line-height: 1.47;
+            font-size: 17px;
+            color: var(--near-black);
+            background: var(--light-gray);
+        }
+        
+        /* Navigation - Glass Effect */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 48px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            z-index: 1000;
+        }
+        
+        nav .logo {
+            width: 17px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav .logo svg {
+            width: 17px;
+            height: 20px;
+            fill: var(--white);
+        }
+        
+        nav .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        nav .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+        
+        nav .nav-links a:hover {
+            opacity: 1;
+        }
+        
+        nav .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        nav .nav-icons svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--white);
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+        
+        nav .nav-icons svg:hover {
+            opacity: 1;
+        }
+        
+        /* Hero Section - Black */
+        .hero {
+            background: var(--black);
+            padding: 140px 48px 100px;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero h1 {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.07;
+            letter-spacing: -0.28px;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+        
+        .hero p {
+            font-size: 21px;
+            font-weight: 400;
+            line-height: 1.19;
+            letter-spacing: 0.231px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+        
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+        }
+        
+        /* Pill Buttons - Apple Signature */
+        .btn-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 400;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-pill-outline {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn-pill-outline:hover {
+            border-color: var(--white);
+            text-decoration: underline;
+        }
+        
+        .btn-pill-primary {
+            background: var(--apple-blue);
+            color: var(--white);
+            border: none;
+        }
+        
+        .btn-pill-primary:hover {
+            background: #0077ed;
+        }
+        
+        /* Metrics Section - Light Gray */
+        .metrics-section {
+            background: var(--light-gray);
+            padding: 80px 48px;
+        }
+        
+        .section-title {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 1.10;
+            color: var(--near-black);
+            margin-bottom: 48px;
+            text-align: center;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Apple Cards - No Border, Soft Shadow */
+        .metric-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 28px;
+            box-shadow: var(--card-shadow);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .metric-card .label {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: -0.224px;
+            line-height: 1.29;
+            color: var(--black-48);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .metric-card .value {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+            letter-spacing: -0.28px;
+            line-height: 1.10;
+            color: var(--near-black);
+        }
+        
+        .metric-card .change {
+            font-size: 14px;
+            font-weight: 400;
+            color: #34c759;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        /* Chart Section - Dark */
+        .chart-section {
+            background: var(--black);
+            padding: 80px 48px;
+        }
+        
+        .chart-section .section-title {
+            color: var(--white);
+        }
+        
+        .chart-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--dark-surface-1);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .chart-header h3 {
+            font-size: 21px;
+            font-weight: 600;
+            letter-spacing: 0.231px;
+            line-height: 1.19;
+            color: var(--white);
+        }
+        
+        .chart-header .time-filter {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .time-btn {
+            padding: 6px 14px;
+            border-radius: 11px;
+            background: var(--dark-surface-2);
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .time-btn:hover {
+            color: var(--white);
+        }
+        
+        .time-btn.active {
+            background: var(--white);
+            color: var(--near-black);
+        }
+        
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 200px;
+            padding-top: 20px;
+        }
+        
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+        
+        .bar {
+            width: 40px;
+            background: linear-gradient(180deg, var(--apple-blue) 0%, #005bb5 100%);
+            border-radius: 4px 4px 0 0;
+            transition: height 0.5s ease;
+        }
+        
+        .bar-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Product Grid Section - Apple Style */
+        .products-section {
+            background: var(--light-gray);
+            padding: 80px 48px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Apple Product Card - Image on Solid */
+        .product-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .product-image svg {
+            width: 80px;
+            height: 80px;
+            fill: var(--white);
+            opacity: 0.9;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h4 {
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: 0.231px;
+            line-height: 1.19;
+            color: var(--near-black);
+            margin-bottom: 4px;
+        }
+        
+        .product-info p {
+            font-size: 14px;
+            color: var(--black-80);
+            margin-bottom: 16px;
+        }
+        
+        .product-ctas {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .learn-more {
+            color: var(--link-blue);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: -0.224px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: text-decoration 0.2s ease;
+        }
+        
+        .learn-more:hover {
+            text-decoration: underline;
+        }
+        
+        /* Activity Section - Dark */
+        .activity-section {
+            background: var(--black);
+            padding: 80px 48px;
+        }
+        
+        .activity-section .section-title {
+            color: var(--white);
+        }
+        
+        .activity-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--dark-surface-2);
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--apple-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .activity-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+        }
+        
+        .activity-content h4 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+        
+        .activity-content p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .activity-time {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+        
+        /* CTA Section - Light Gray */
+        .cta-section {
+            background: var(--light-gray);
+            padding: 100px 48px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.07;
+            letter-spacing: -0.28px;
+            color: var(--near-black);
+            margin-bottom: 16px;
+        }
+        
+        .cta-section p {
+            font-size: 21px;
+            color: var(--black-80);
+            margin-bottom: 32px;
+        }
+        
+        /* Footer - Dark */
+        footer {
+            background: var(--near-black);
+            padding: 48px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+        }
+        
+        footer .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+        }
+        
+        footer h5 {
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        footer ul {
+            list-style: none;
+        }
+        
+        footer li {
+            margin-bottom: 8px;
+        }
+        
+        footer a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: var(--white);
+        }
+        
+        footer .copyright {
+            max-width: 1200px;
+            margin: 32px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Focus States - Apple Style */
+        *:focus-visible {
+            outline: 2px solid var(--focus-ring);
+            outline-offset: 2px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            nav {
+                padding: 0 20px;
+            }
+            
+            nav .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 120px 20px 60px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 17px;
+            }
+            
+            .metrics-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section h2 {
+                font-size: 28px;
+            }
+            
+            footer .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation - Apple Glass Effect -->
+    <nav>
+        <div class="logo">
+            <svg viewBox="0 0 17 48" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.5 28.5c0 2.5-2 4.5-4.5 4.5s-4.5-2-4.5-4.5 2-4.5 4.5-4.5 4.5 2 4.5 4.5zm-7-10c-2.5 0-4.5-2-4.5-4.5S6 9.5 8.5 9.5s4.5 2 4.5 4.5-2 4.5-4.5 4.5zm5.5 10c0-4-3-7.5-7-8.5-.5-2.5-2.5-4.5-5-4.5-3 0-5.5 2.5-5.5 5.5 0 2.5 1.5 4.5 4 5.5v.5c0 4.5 3 8.5 7.5 8.5h.5c4 0 7.5-3.5 7.5-7.5 0-3-2-6-5-7.5 2.5-1.5 4-4 4-6.5 0-4.5-3.5-8-8-8-4 0-7 3-7.5 6.5-2-.5-4 1-4 1s-2-2-2-5C1 7 5 2 10 2c2 0 4 .5 5.5 1.5C17 2 19 4 19 7c0 2-1.5 3.5-1.5 3.5 1.5.5 2.5 2 2.5 4 0 3-2 5.5-4.5 6-1.5 5.5-5 9.5-10 9.5-4 0-7.5-3-7.5-7 0-3 2-5.5 4.5-7 2 1 4.5 1 6 1z"/>
+            </svg>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+        <div class="nav-icons">
+            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14.5c-3.6 0-6.5-2.9-6.5-6.5S4.4 1.5 8 1.5s6.5 2.9 6.5 6.5-2.9 6.5-6.5 6.5zm0-10c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm0 5.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z"/>
+            </svg>
+            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 1.5C4.4 1.5 1.5 4.4 1.5 8c0 2.5 1.4 4.7 3.5 6 .2.2.3.5.3.8v1.2c0 .3.2.5.5.5h4c.3 0 .5-.2.5-.5V15c0-.3.1-.6.3-.8 2.1-1.3 3.5-3.5 3.5-6 0-3.6-2.9-6.5-6.5-6.5zm0 11.5c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5zm0-8c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"/>
+            </svg>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Black -->
+    <section class="hero">
+        <h1>Analytics Dashboard</h1>
+        <p>Track your business performance with beautiful, insightful metrics.</p>
+        <div class="hero-ctas">
+            <a href="#" class="btn-pill btn-pill-outline">Learn more →</a>
+            <a href="#" class="btn-pill btn-pill-primary">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Metrics Section - Light Gray -->
+    <section class="metrics-section">
+        <h2 class="section-title">Key Metrics</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="label">Total Revenue</div>
+                <div class="value">$847K</div>
+                <div class="change">↑ 12.5% vs last month</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Active Users</div>
+                <div class="value">24.8K</div>
+                <div class="change">↑ 8.2% vs last month</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Conversion Rate</div>
+                <div class="value">3.42%</div>
+                <div class="change">↑ 0.4% vs last month</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Avg. Session</div>
+                <div class="value">4m 32s</div>
+                <div class="change">↑ 15.3% vs last month</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chart Section - Dark -->
+    <section class="chart-section">
+        <h2 class="section-title">Performance Overview</h2>
+        <div class="chart-container">
+            <div class="chart-header">
+                <h3>Monthly Revenue</h3>
+                <div class="time-filter">
+                    <button class="time-btn">7D</button>
+                    <button class="time-btn active">30D</button>
+                    <button class="time-btn">90D</button>
+                    <button class="time-btn">1Y</button>
+                </div>
+            </div>
+            <div class="chart-bars">
+                <div class="bar-group">
+                    <div class="bar" style="height: 60px;"></div>
+                    <span class="bar-label">Jan</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 90px;"></div>
+                    <span class="bar-label">Feb</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 75px;"></div>
+                    <span class="bar-label">Mar</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 120px;"></div>
+                    <span class="bar-label">Apr</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 100px;"></div>
+                    <span class="bar-label">May</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 140px;"></div>
+                    <span class="bar-label">Jun</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 180px;"></div>
+                    <span class="bar-label">Jul</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section - Light Gray -->
+    <section class="products-section">
+        <h2 class="section-title">Top Products</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                </div>
+                <div class="product-info">
+                    <h4>Analytics Pro</h4>
+                    <p>Advanced metrics and real-time insights</p>
+                    <div class="product-ctas">
+                        <a href="#" class="learn-more">Learn more →</a>
+                        <a href="#" class="btn-pill btn-pill-primary" style="padding: 6px 14px; font-size: 14px;">$29</a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                </div>
+                <div class="product-info">
+                    <h4>Dashboard Plus</h4>
+                    <p>Customizable widgets and templates</p>
+                    <div class="product-ctas">
+                        <a href="#" class="learn-more">Learn more →</a>
+                        <a href="#" class="btn-pill btn-pill-primary" style="padding: 6px 14px; font-size: 14px;">$49</a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <svg viewBox="0 0 24 24"><polygon points="12,2 22,22 2,22"/></svg>
+                </div>
+                <div class="product-info">
+                    <h4>Report Builder</h4>
+                    <p>Generate automated reports easily</p>
+                    <div class="product-ctas">
+                        <a href="#" class="learn-more">Learn more →</a>
+                        <a href="#" class="btn-pill btn-pill-primary" style="padding: 6px 14px; font-size: 14px;">$19</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity Section - Dark -->
+    <section class="activity-section">
+        <h2 class="section-title">Recent Activity</h2>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="activity-content">
+                    <h4>New subscription from Acme Corp</h4>
+                    <p>Analytics Pro annual plan activated</p>
+                </div>
+                <span class="activity-time">2 min ago</span>
+            </div>
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="activity-content">
+                    <h4>Team member invited</h4>
+                    <p>sarah.chen@company.com joined workspace</p>
+                </div>
+                <span class="activity-time">1 hour ago</span>
+            </div>
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div class="activity-content">
+                    <h4>Report generated</h4>
+                    <p>Q4 Performance Summary ready for review</p>
+                </div>
+                <span class="activity-time">3 hours ago</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section - Light Gray -->
+    <section class="cta-section">
+        <h2>Ready to get started?</h2>
+        <p>Start your 14-day free trial today. No credit card required.</p>
+        <div class="hero-ctas" style="justify-content: center;">
+            <a href="#" class="btn-pill btn-pill-outline" style="border-color: var(--near-black); color: var(--near-black);">Learn more →</a>
+            <a href="#" class="btn-pill btn-pill-primary">Start Free Trial</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h5>Products</h5>
+                <ul>
+                    <li><a href="#">Analytics Pro</a></li>
+                    <li><a href="#">Dashboard Plus</a></li>
+                    <li><a href="#">Report Builder</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Legal</h5>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright © 2026 Analytics Inc. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
