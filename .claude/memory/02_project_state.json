@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "YYYY-MM-DD HH:MM:SS UTC",
+    "updated_by": "Your Name"
+  },
+  "project": {
+    "name": "[REPLACE] Experimental Sandbox Project",
+    "description": "[REPLACE] Brief description of what this project explores or does",
+    "type": "research|prototype|exploration",
+    "maturity_level": "early-stage",
+    "purpose": "[REPLACE] Learning example: Modular framework for prototyping; API integration testing; Data transformation workflows"
+  },
+  "current_focus": {
+    "primary": "[REPLACE] What's the main thing being worked on RIGHT NOW",
+    "secondary": "[REPLACE] (optional) Secondary focus if multitasking",
+    "started_date": "YYYY-MM-DD",
+    "expected_completion": "YYYY-MM-DD"
+  },
+  "active_features": [
+    "[REPLACE] Feature/experiment 1 - Current status: in-progress",
+    "[REPLACE] Feature/experiment 2 - Current status: testing",
+    "[REPLACE] Feature/experiment 3 - Current status: designing",
+    "NOTE: Keep to 3-5 items; archive old ones to completed_features"
+  ],
+  "completed_features": [
+    "[OPTIONAL] Feature A (completed: YYYY-MM-DD)",
+    "[OPTIONAL] Feature B (completed: YYYY-MM-DD)"
+  ],
+  "blockers": [
+    {
+      "issue": "[REPLACE] What's blocking progress",
+      "impact": "high|medium|low",
+      "description": "Detailed description of the blocker",
+      "workaround": "[If available] Temporary solution",
+      "dependency": "[If applicable] Waiting on something else"
+    }
+  ],
+  "tech_stack": {
+    "language": "[REPLACE] python|javascript|typescript|go|java|c|multi-language",
+    "primary_paradigm": "functional|object-oriented|procedural|multi-paradigm",
+    "framework": "[REPLACE] Django, Flask, Express, Spring, etc. or 'none' for library-based",
+    "runtime": "[REPLACE] Python 3.9+, Node 18+, Go 1.19+, Java 11+, etc.",
+    "database": "[REPLACE] PostgreSQL, MongoDB, SQLite, In-Memory, None",
+    "key_libraries": [
+      "[REPLACE] Library 1 (purpose)",
+      "[REPLACE] Library 2 (purpose)"
+    ],
+    "tools": {
+      "testing": "[pytest, jest, unittest, etc.]",
+      "linting": "[pylint, eslint, golangci-lint, etc.]",
+      "formatting": "[black, prettier, gofmt, etc.]",
+      "package_manager": "[pip, npm, go mod, maven, cargo, etc.]"
+    }
+  },
+  "architecture": {
+    "pattern": "[REPLACE] monolithic, microservices, modular, functional pipeline, etc.",
+    "components": [
+      {
+        "name": "[REPLACE] Component 1 (e.g., DataProcessor)",
+        "responsibility": "What this component does",
+        "language": "python|js|go|shared",
+        "status": "stable|in-development|experimental"
+      },
+      {
+        "name": "[REPLACE] Component 2 (e.g., APIHandler)",
+        "responsibility": "What this component does",
+        "language": "python|js|go|shared",
+        "status": "stable|in-development|experimental"
+      }
+    ],
+    "data_flow": "Request → [Component 1] → [Component 2] → Response (example)",
+    "external_integrations": [
+      "[REPLACE] Service 1: Purpose + why we use it",
+      "[REPLACE] Service 2: Purpose + why we use it"
+    ]
+  },
+  "testing_status": {
+    "unit_tests": {
+      "coverage_percent": "[REPLACE] 0-100",
+      "passing": "[REPLACE] X/Y tests passing",
+      "status": "passing|some-failures|needs-work"
+    },
+    "integration_tests": {
+      "count": "[REPLACE] Number of integration tests",
+      "status": "passing|some-failures|not-implemented"
+    },
+    "manual_testing_needed": [
+      "[REPLACE] Scenario 1 that needs manual testing",
+      "[REPLACE] Scenario 2 that needs manual testing"
+    ]
+  },
+  "performance_metrics": {
+    "response_time_ms": "[REPLACE] Average response time if applicable",
+    "throughput": "[REPLACE] Requests/sec or similar",
+    "memory_usage_mb": "[REPLACE] Typical memory footprint",
+    "known_bottlenecks": [
+      "[REPLACE] Bottleneck 1 and why",
+      "[REPLACE] Bottleneck 2 and why"
+    ]
+  },
+  "quality_metrics": {
+    "code_coverage": "[REPLACE] 0-100%",
+    "linting_errors": "[REPLACE] 0",
+    "documentation_complete": "true|false",
+    "technical_debt_items": "[REPLACE] Number of outstanding debt items"
+  },
+  "environment_status": {
+    "development": {
+      "status": "ready|needs-setup",
+      "setup_time_minutes": "[REPLACE] ~5-30",
+      "last_verified": "YYYY-MM-DD"
+    },
+    "testing": {
+      "status": "ready|needs-setup",
+      "last_run": "YYYY-MM-DD"
+    },
+    "staging": {
+      "status": "ready|needs-setup|not-applicable",
+      "url": "[REPLACE] https://staging.example.com or N/A"
+    },
+    "production": {
+      "status": "live|not-applicable",
+      "url": "[REPLACE] https://example.com or N/A",
+      "uptime_percent": "[REPLACE] 99.5% or N/A"
+    }
+  },
+  "team_context": {
+    "primary_owner": "[REPLACE] Your name or team",
+    "contributors": [
+      "[REPLACE] Person 1",
+      "[REPLACE] Person 2"
+    ],
+    "knowledge_holders": {
+      "architecture": "[REPLACE] Who knows the design best",
+      "frontend": "[REPLACE] Frontend expert if applicable",
+      "backend": "[REPLACE] Backend expert if applicable",
+      "devops": "[REPLACE] DevOps expert if applicable"
+    }
+  },
+  "next_priorities": [
+    {
+      "priority": 1,
+      "task": "[REPLACE] Most important next step",
+      "effort": "small|medium|large",
+      "blocker": "false|true",
+      "owner": "[REPLACE] Name or 'unassigned'"
+    },
+    {
+      "priority": 2,
+      "task": "[REPLACE] Second priority",
+      "effort": "small|medium|large",
+      "blocker": "false|true",
+      "owner": "[REPLACE] Name or 'unassigned'"
+    },
+    {
+      "priority": 3,
+      "task": "[REPLACE] Third priority",
+      "effort": "small|medium|large",
+      "blocker": "false|true",
+      "owner": "[REPLACE] Name or 'unassigned'"
+    }
+  ],
+  "known_limitations": [
+    "[REPLACE] Limitation 1: Impact and workaround if available",
+    "[REPLACE] Limitation 2: Impact and workaround if available"
+  ],
+  "risks": [
+    {
+      "risk": "[REPLACE] Potential risk 1",
+      "likelihood": "high|medium|low",
+      "impact": "high|medium|low",
+      "mitigation": "[REPLACE] How to reduce risk"
+    }
+  ],
+  "dependencies": {
+    "internal": [
+      "[REPLACE] Other projects we depend on"
+    ],
+    "external": [
+      "[REPLACE] External services (APIs, databases, etc.)"
+    ]
+  },
+  "notes": {
+    "recent_changes": "[REPLACE] Summary of last major change",
+    "upcoming_milestones": "[REPLACE] What's coming next (features, releases, etc.)",
+    "important_links": {
+      "documentation": "[REPLACE] URL to full docs",
+      "github": "[REPLACE] GitHub repo if applicable",
+      "issue_tracker": "[REPLACE] Jira, GitHub Issues, etc."
+    }
+  }
+}
