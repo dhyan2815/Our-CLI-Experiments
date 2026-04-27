@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard — Nike Design</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap');
+        
+        :root {
+            --nike-black: #111111;
+            --nike-white: #FFFFFF;
+            --snow: #FAFAFA;
+            --light-gray: #F5F5F5;
+            --hover-gray: #E5E5E5;
+            --secondary-text: #707072;
+            --border-secondary: #CACACB;
+            --dark-surface: #28282A;
+            --deep-charcoal: #1F1F21;
+            --dark-hover: #39393B;
+            --nike-red: #D30005;
+            --success-green: #007D48;
+            --link-blue: #1151FF;
+            --focus-ring: rgba(39, 93, 197, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--nike-black);
+            background: var(--snow);
+        }
+        
+        /* Promotional Banner - Nike Signature */
+        .promo-banner {
+            background: var(--nike-black);
+            padding: 10px 48px;
+            text-align: center;
+        }
+        
+        .promo-banner p {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--nike-white);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Navigation - White, Solid */
+        nav {
+            background: var(--nike-white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-secondary);
+        }
+        
+        .nav-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            height: 60px;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+        
+        .nav-logo svg {
+            width: 60px;
+            height: 20px;
+            fill: var(--nike-black);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--nike-black);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-text);
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .search-input {
+            background: var(--light-gray);
+            border: none;
+            border-radius: 24px;
+            padding: 8px 16px;
+            font-size: 14px;
+            width: 200px;
+            font-family: inherit;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            background: var(--hover-gray);
+        }
+        
+        .search-input::placeholder {
+            color: var(--secondary-text);
+        }
+        
+        .nav-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        
+        .nav-icon:hover {
+            opacity: 0.6;
+        }
+        
+        .nav-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--nike-black);
+        }
+        
+        /* Hero Section - Full Bleed, No Radius */
+        .hero {
+            background: linear-gradient(135deg, #e94560 0%, #1A1A2E 100%);
+            padding: 80px 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-family: 'Oswald', 'Arial Black', sans-serif;
+            font-size: 96px;
+            font-weight: 700;
+            line-height: 0.90;
+            text-transform: uppercase;
+            color: var(--nike-white);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        .hero p {
+            font-size: 16px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            line-height: 1.75;
+        }
+        
+        /* Nike Pill Buttons - 30px Radius */
+        .btn-nike {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        
+        .btn-nike-primary {
+            background: var(--nike-black);
+            color: var(--nike-white);
+        }
+        
+        .btn-nike-primary:hover {
+            background: var(--secondary-text);
+        }
+        
+        .btn-nike-secondary {
+            background: transparent;
+            color: var(--nike-black);
+            border: 1.5px solid var(--border-secondary);
+        }
+        
+        .btn-nike-secondary:hover {
+            border-color: var(--secondary-text);
+            background: var(--hover-gray);
+        }
+        
+        .btn-nike-light {
+            background: var(--nike-white);
+            color: var(--nike-black);
+        }
+        
+        .btn-nike-light:hover {
+            background: var(--hover-gray);
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 48px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="100" cy="100" r="60" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/><circle cx="100" cy="100" r="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/></svg>');
+        }
+        
+        /* Metrics Section */
+        .metrics-section {
+            padding: 64px 48px;
+            background: var(--snow);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            max-width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-title {
+            font-family: 'Oswald', 'Arial Black', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.20;
+            text-transform: uppercase;
+            color: var(--nike-black);
+        }
+        
+        /* Nike Dense Grid - 4-12px Gaps */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        
+        /* Nike Cards - No Shadow, Flat */
+        .metric-card {
+            background: var(--nike-white);
+            padding: 24px;
+            border-radius: 0;
+        }
+        
+        .metric-card .label {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--secondary-text);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .metric-card .value {
+            font-family: 'Oswald', 'Arial Black', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--nike-black);
+            margin-bottom: 8px;
+        }
+        
+        .metric-card .change {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--success-green);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .metric-card .change.negative {
+            color: var(--nike-red);
+        }
+        
+        /* Chart Section */
+        .chart-section {
+            padding: 64px 48px;
+            background: var(--nike-white);
+        }
+        
+        .chart-card {
+            max-width: 1440px;
+            margin: 0 auto;
+            background: var(--snow);
+            border-radius: 0;
+            padding: 32px;
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        
+        .chart-header h3 {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .filter-pills {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .filter-pill {
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: var(--light-gray);
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        
+        .filter-pill:hover {
+            background: var(--hover-gray);
+        }
+        
+        .filter-pill.active {
+            background: var(--nike-black);
+            color: var(--nike-white);
+        }
+        
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 250px;
+            padding-top: 24px;
+        }
+        
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+        
+        .bar {
+            width: 60px;
+            background: var(--nike-black);
+            transition: height 0.4s ease;
+        }
+        
+        .bar-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--secondary-text);
+            text-transform: uppercase;
+        }
+        
+        /* Products Grid - Dense */
+        .products-section {
+            padding: 64px 48px;
+            background: var(--snow);
+        }
+        
+        /* Nike Product Cards - No Radius on Images, Sharp Edges */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        
+        .product-card {
+            background: var(--nike-white);
+        }
+        
+        .product-image {
+            aspect-ratio: 1/1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.6) 100%);
+        }
+        
+        .product-image svg {
+            width: 80px;
+            height: 80px;
+            fill: var(--nike-white);
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .product-badges {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .badge {
+            background: var(--nike-white);
+            color: var(--nike-black);
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .badge.sale {
+            background: var(--nike-red);
+            color: var(--nike-white);
+        }
+        
+        .product-info {
+            padding: 16px;
+        }
+        
+        .product-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--nike-black);
+            margin-bottom: 4px;
+        }
+        
+        .product-info p {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--secondary-text);
+            margin-bottom: 12px;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .price-current {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--nike-black);
+        }
+        
+        .price-original {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--secondary-text);
+            text-decoration: line-through;
+        }
+        
+        /* Activity Section - Divider Style */
+        .activity-section {
+            padding: 64px 48px;
+            background: var(--nike-white);
+        }
+        
+        .activity-list {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--hover-gray);
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--nike-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .activity-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--nike-white);
+        }
+        
+        .activity-content {
+            flex: 1;
+            padding: 0 24px;
+        }
+        
+        .activity-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--nike-black);
+            margin-bottom: 4px;
+        }
+        
+        .activity-content p {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--secondary-text);
+        }
+        
+        .activity-time {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--secondary-text);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--nike-black);
+            padding: 80px 48px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-family: 'Oswald', 'Arial Black', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 0.90;
+            text-transform: uppercase;
+            color: var(--nike-white);
+            margin-bottom: 24px;
+        }
+        
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer - Nike Style */
+        footer {
+            background: var(--snow);
+            padding: 48px;
+        }
+        
+        footer .footer-content {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+        }
+        
+        footer h5 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--nike-black);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        
+        footer ul {
+            list-style: none;
+        }
+        
+        footer li {
+            margin-bottom: 12px;
+        }
+        
+        footer a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        footer a:hover {
+            color: var(--nike-black);
+        }
+        
+        footer .footer-bottom {
+            max-width: 1440px;
+            margin: 48px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        footer .copyright {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--secondary-text);
+        }
+        
+        /* Focus States - Nike Style */
+        *:focus-visible {
+            outline: 2px solid var(--focus-ring);
+            outline-offset: 2px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 64px;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .promo-banner {
+                padding: 8px 16px;
+            }
+            
+            .nav-main {
+                padding: 0 16px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 48px 16px;
+            }
+            
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .metrics-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section h2 {
+                font-size: 48px;
+            }
+            
+            footer .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Promotional Banner - Nike Signature -->
+    <div class="promo-banner">
+        <p>Free Shipping on Orders Over $150 — Member Benefits</p>
+    </div>
+
+    <!-- Navigation - White, Solid -->
+    <nav>
+        <div class="nav-main">
+            <div class="nav-logo">
+                <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30 0L25.6 7.2H27.3C27.8 7.2 28.1 7.0 28.4 6.7L35.8 0H30ZM0 0L8.2 14.2H3.8L0 0ZM28.2 0L35.6 14.2H31.2L28.2 8.6V14.2H23.8V0H28.2ZM49.8 0L42.2 14.2H47.2L48.8 10.8H53.6L55.2 14.2H60L52.4 0H49.8ZM50.2 6.6L52.6 2.4H51.8L50.2 6.6ZM16.4 0H20.6V14.2H16.4V0ZM12.2 0H8.2V14.2H12.2V0ZM56.4 20C57.3 20 58 19.3 58 18.4C58 17.5 57.3 16.8 56.4 16.8C55.5 16.8 54.8 17.5 54.8 18.4C54.8 19.3 55.5 20 56.4 20ZM3.4 20C4.3 20 5 19.3 5 18.4C5 17.5 4.3 16.8 3.4 16.8C2.5 16.8 1.8 17.5 1.8 18.4C1.8 19.3 2.5 20 3.4 20Z"/>
+                </svg>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">New</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+            <div class="nav-actions">
+                <input type="text" class="search-input" placeholder="Search">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Full Bleed, Uppercase -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Performance Analytics</h1>
+            <p>Track your metrics with precision. Built for teams who demand excellence and move fast.</p>
+            <a href="#" class="btn-nike btn-nike-light">Shop Now</a>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <!-- Metrics Section - Dense Grid -->
+    <section class="metrics-section">
+        <div class="section-header">
+            <h2 class="section-title">Key Metrics</h2>
+        </div>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="label">Total Revenue</div>
+                <div class="value">$847K</div>
+                <div class="change">↑ 12.5%</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Active Users</div>
+                <div class="value">24.8K</div>
+                <div class="change">↑ 8.2%</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Conversion</div>
+                <div class="value">3.42%</div>
+                <div class="change">↑ 0.4%</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Avg. Session</div>
+                <div class="value">4:32</div>
+                <div class="change negative">↓ 2.1%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chart Section - Flat Cards -->
+    <section class="chart-section">
+        <div class="chart-card">
+            <div class="chart-header">
+                <h3>Monthly Revenue</h3>
+                <div class="filter-pills">
+                    <button class="filter-pill">Week</button>
+                    <button class="filter-pill">Month</button>
+                    <button class="filter-pill active">Year</button>
+                </div>
+            </div>
+            <div class="chart-bars">
+                <div class="bar-group">
+                    <div class="bar" style="height: 80px;"></div>
+                    <span class="bar-label">Jan</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 120px;"></div>
+                    <span class="bar-label">Feb</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 100px;"></div>
+                    <span class="bar-label">Mar</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 160px;"></div>
+                    <span class="bar-label">Apr</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 140px;"></div>
+                    <span class="bar-label">May</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 190px;"></div>
+                    <span class="bar-label">Jun</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 220px;"></div>
+                    <span class="bar-label">Jul</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section - No Image Radius, Dense Grid -->
+    <section class="products-section">
+        <div class="section-header">
+            <h2 class="section-title">Featured Products</h2>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="product-badges">
+                        <span class="badge">New</span>
+                    </div>
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/></svg>
+                </div>
+                <div class="product-info">
+                    <h4>Analytics Pro</h4>
+                    <p>Advanced metrics platform</p>
+                    <div class="product-price">
+                        <span class="price-current">$29.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="product-badges">
+                        <span class="badge sale">Sale</span>
+                    </div>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                </div>
+                <div class="product-info">
+                    <h4>Dashboard Plus</h4>
+                    <p>Customizable widgets</p>
+                    <div class="product-price">
+                        <span class="price-current">$39.00</span>
+                        <span class="price-original">$49.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <svg viewBox="0 0 24 24"><polygon points="12,2 22,22 2,22"/></svg>
+                </div>
+                <div class="product-info">
+                    <h4>Report Builder</h4>
+                    <p>Automated reporting</p>
+                    <div class="product-price">
+                        <span class="price-current">$19.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity Section - Divider Style -->
+    <section class="activity-section">
+        <div class="activity-list">
+            <h2 class="section-title" style="margin-bottom: 24px;">Recent Activity</h2>
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="activity-content">
+                    <h4>New subscription from Acme Corp</h4>
+                    <p>Analytics Pro annual plan activated</p>
+                </div>
+                <span class="activity-time">2 min ago</span>
+            </div>
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div class="activity-content">
+                    <h4>Team member invited</h4>
+                    <p>sarah.chen@company.com joined workspace</p>
+                </div>
+                <span class="activity-time">1 hour ago</span>
+            </div>
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+                </div>
+                <div class="activity-content">
+                    <h4>Report generated</h4>
+                    <p>Q4 Performance Summary ready for review</p>
+                </div>
+                <span class="activity-time">3 hours ago</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section - Black -->
+    <section class="cta-section">
+        <h2>Just Do It.</h2>
+        <p>Start your 14-day free trial today. No credit card required.</p>
+        <a href="#" class="btn-nike btn-nike-light">Start Free Trial</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h5>Products</h5>
+                <ul>
+                    <li><a href="#">Analytics Pro</a></li>
+                    <li><a href="#">Dashboard Plus</a></li>
+                    <li><a href="#">Report Builder</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Status</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="copyright">© 2026 Analytics Inc. All rights reserved.</span>
+            <div style="display: flex; gap: 16px;">
+                <a href="#" class="btn-nike btn-nike-secondary" style="padding: 8px 16px; font-size: 12px;">Privacy</a>
+                <a href="#" class="btn-nike btn-nike-secondary" style="padding: 8px 16px; font-size: 12px;">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
