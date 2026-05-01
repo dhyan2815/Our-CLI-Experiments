@@ -149,7 +149,7 @@ This repository is a central hub for **n8n automation workflows**, **MCP (Model 
 - `/workflows/`: n8n workflow JSON exports
 - `/excalidraw diagrams/`: Visual architecture diagrams
 - `/.opencode/`: OpenCode configuration and utilities
-- `/.skills/`: Claude Code skill definitions
+- `/.skills/`: Claude Code skill definitions (organized into content/, linkedin/, developer/, graphics/)
 
 ---
 
@@ -205,6 +205,6 @@ This repository is a central hub for **n8n automation workflows**, **MCP (Model 
 - **AI-Native Nodes**: Prefer "AI Agent" or "Basic LLM Chain" for NLP tasks.
 
 ---
-*Last Updated: 2026-04-13*
+*Last Updated: 2026-05-01*
 *Memory System: SESSION_MEMORY.md (memories/SESSION_MEMORY.md)*
 *Targeted Audience: AI Coding Agents (Claude Code, Gemini CLI, OpenCode, etc.)*

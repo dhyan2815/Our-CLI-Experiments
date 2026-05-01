@@ -31,7 +31,9 @@ A structured playground for experimenting with AI agents and CLI automation tool
 
 Skills are modular AI instruction sets stored in [`.skills/`](./.skills/). Each skill contains specialized workflows, prompts, and references for specific tasks.
 
-### Content Creation
+Skills are organized into 4 categories:
+
+### [.skills/content/](.skills/content/) — Content Creation
 
 | Skill | Function |
 |-------|----------|
@@ -47,8 +49,9 @@ Skills are modular AI instruction sets stored in [`.skills/`](./.skills/). Each 
 | `quote-post` | Quote graphics + Gemini prompts |
 | `youtube-thumbnail` | CTR-optimized thumbnails |
 | `reels-scripting` | Reel scripts from reference content |
+| `newsletter-voice` | Newsletter-specific voice profiling |
 
-### LinkedIn Tools
+### [.skills/linkedin/](.skills/linkedin/) — LinkedIn Tools
 
 | Skill | Function |
 |-------|----------|
@@ -57,8 +60,10 @@ Skills are modular AI instruction sets stored in [`.skills/`](./.skills/). Each 
 | `pinned-comment` | Signature pinned comments |
 | `analytics-dashboard` | Interactive performance dashboard |
 | `niche-research` | 20 trending stories (7 days) |
+| `profile-optimizer` | Full profile rebuild with image prompts |
+| `writing-linkedin-posts` | LinkedIn post creation |
 
-### Developer Tools
+### [.skills/developer/](.skills/developer/) — Developer Tools
 
 | Skill | Function |
 |-------|----------|
@@ -68,8 +73,16 @@ Skills are modular AI instruction sets stored in [`.skills/`](./.skills/). Each 
 | `excalidraw-diagram-generator` | Excalidraw diagrams |
 | `web-design-reviewer` | UI/UX audit & automated fixes |
 | `use-tinyfish` | Web scraping and automation with natural language |
-| `website-to-hyperframes` | Convert websites to HyperFrames videos |
 | `project-idea-validator` | Research project ideas against live data |
+| `creating-pr` | GitHub PR creation workflow |
+| `issue-workflow` | GitHub Issues management |
+| `pr-comment` | Post comments on PRs |
+
+### [.skills/graphics/](.skills/graphics/) — Graphics & Video
+
+| Skill | Function |
+|-------|----------|
+| `website-to-hyperframes` | Convert websites to HyperFrames videos |
 
 ---
 
