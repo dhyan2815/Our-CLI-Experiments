@@ -1,6 +1,16 @@
 {
   "hooks": {
-    "on_exit": "session-memory-updater"
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "session-memory-updater"
+          }
+        ]
+      }
+    ]
   },
   "permissions": {
     "allow": [
