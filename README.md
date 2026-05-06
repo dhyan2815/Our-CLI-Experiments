@@ -33,7 +33,7 @@ Skills are modular AI instruction sets stored in [`skills/`](./skills/). Each sk
 
 Skills are organized into 5 categories:
 
-### [.skills/content/](.skills/content/) — Content Creation
+### [skills/content/](skills/content/) — Content Creation
 
 | Skill | Function |
 |-------|----------|
@@ -52,7 +52,7 @@ Skills are organized into 5 categories:
 | `newsletter-voice` | Newsletter-specific voice profiling |
 | `humanizer` | Remove signs of AI-generated writing from text |
 
-### [.skills/linkedin/](.skills/linkedin/) — LinkedIn Tools
+### [skiills/linkedin/](skiills/linkedin/) — LinkedIn Tools
 
 | Skill | Function |
 |-------|----------|
@@ -65,7 +65,7 @@ Skills are organized into 5 categories:
 | `writing-linkedin-posts` | LinkedIn post creation |
 | `linkedin-sequence` | 2-message DM sequence after connection accepted |
 
-### [.skills/developer/](.skills/developer/) — Developer Tools
+### [skiills/developer/](skiills/developer/) — Developer Tools
 
 | Skill | Function |
 |-------|----------|
@@ -81,13 +81,13 @@ Skills are organized into 5 categories:
 | `pr-comment` | Post comments on PRs |
 | `ai-wrapper-product` | AI wrapper product development guide |
 
-### [.skills/graphics/](.skills/graphics/) — Graphics & Video
+### [skiills/graphics/](skiills/graphics/) — Graphics & Video
 
 | Skill | Function |
 |-------|----------|
 | `website-to-hyperframes` | Convert websites to HyperFrames videos |
 
-### [.skills/apify/](.skills/apify/) — Apify Automation
+### [skiills/apify/](skiills/apify/) — Apify Automation
 
 | Skill | Function |
 |-------|----------|
