@@ -31,7 +31,7 @@ A structured playground for experimenting with AI agents and CLI automation tool
 
 Skills are modular AI instruction sets stored in [`.skills/`](./.skills/). Each skill contains specialized workflows, prompts, and references for specific tasks.
 
-Skills are organized into 4 categories:
+Skills are organized into 5 categories:
 
 ### [.skills/content/](.skills/content/) — Content Creation
 
@@ -79,12 +79,23 @@ Skills are organized into 4 categories:
 | `creating-pr` | GitHub PR creation workflow |
 | `issue-workflow` | GitHub Issues management |
 | `pr-comment` | Post comments on PRs |
+| `ai-wrapper-product` | AI wrapper product development guide |
 
 ### [.skills/graphics/](.skills/graphics/) — Graphics & Video
 
 | Skill | Function |
 |-------|----------|
 | `website-to-hyperframes` | Convert websites to HyperFrames videos |
+
+### [.skills/apify/](.skills/apify/) — Apify Automation
+
+| Skill | Function |
+|-------|----------|
+| `apify-actor-development` | Build & deploy Apify actors (with full schema references) |
+| `apify-content-analysis` | Analyze content using Apify actors |
+| `apify-lead-generation` | Automated lead generation via Apify |
+| `apify-market-research` | Market research using Apify datasets |
+| `apify-trend-analysis` | Trend analysis with Apify actors |
 
 ---
 
@@ -102,7 +113,7 @@ Skills are organized into 4 categories:
 
 ## Key Features
 
-- **30+ Specialized Skills** — Content, LinkedIn, developer, and creative tools including web scraping, video generation, and idea validation
+- **36+ Specialized Skills** — Content, LinkedIn, developer, Apify automation, and creative tools including web scraping, video generation, and idea validation
 - **n8n Workflow Automation** — Telegram chatbots, document assistants, lead generation
 - **Brand Design System** — DESIGN.md templates for Apple, Vercel, Spotify, Nike, and more
 - **Visual Documentation** — Excalidraw diagrams for workflows and architecture
@@ -150,6 +161,8 @@ Each skill follows a consistent pattern:
 
 ## Recent Additions
 
+- **Apify skills** (5) — Actor development, content analysis, lead generation, market research, trend analysis with full reference docs and actor scripts
+- **ai-wrapper-product** skill for AI wrapper product development
 - **website-to-hyperframes** skill for converting websites to promotional videos
 - **project-idea-validator** skill for researching project ideas against live data
 - **use-tinyfish** skill for web scraping and automation using natural language
