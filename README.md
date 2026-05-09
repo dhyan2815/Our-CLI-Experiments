@@ -52,7 +52,7 @@ Skills are organized into 5 categories:
 | `newsletter-voice` | Newsletter-specific voice profiling |
 | `humanizer` | Remove signs of AI-generated writing from text |
 
-### [skiills/linkedin/](skiills/linkedin/) — LinkedIn Tools
+### [skills/linkedin/](skills/linkedin/) — LinkedIn Tools
 
 | Skill | Function |
 |-------|----------|
@@ -65,7 +65,7 @@ Skills are organized into 5 categories:
 | `writing-linkedin-posts` | LinkedIn post creation |
 | `linkedin-sequence` | 2-message DM sequence after connection accepted |
 
-### [skiills/developer/](skiills/developer/) — Developer Tools
+### [skills/developer/](skills/developer/) — Developer Tools
 
 | Skill | Function |
 |-------|----------|
@@ -81,7 +81,7 @@ Skills are organized into 5 categories:
 | `pr-comment` | Post comments on PRs |
 | `ai-wrapper-product` | AI wrapper product development guide |
 
-### [skiills/graphics/](skiills/graphics/) — Graphics & Video
+### [skills/graphics/](skills/graphics/) — Graphics & Video
 
 | Skill | Function |
 |-------|----------|
@@ -161,6 +161,7 @@ Each skill follows a consistent pattern:
 
 ## Recent Additions
 
+- **Supervised Learning Flowchart** — Visual diagram for understanding supervised ML concepts
 - **Apify skills** (5) — Actor development, content analysis, lead generation, market research, trend analysis with full reference docs and actor scripts
 - **ai-wrapper-product** skill for AI wrapper product development
 - **website-to-hyperframes** skill for converting websites to promotional videos
