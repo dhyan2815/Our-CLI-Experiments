@@ -1,0 +1,210 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4A90D9', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2E5A88', 'lineColor': '#666666', 'secondaryColor': '#E8F4FD', 'tertiaryColor': '#FFF8E7'}}}%%
+flowchart TB
+    %% Use real nodes as "section headers" so links/classes don't target subgraphs (Mermaid can't link/class subgraphs reliably).
+
+    subgraph START["SUPERVISED LEARNING GUIDE"]
+        direction TB
+        START1["The Complete Guide to<br/>Supervised Machine Learning"]
+    end
+
+    subgraph SECTION1["1. WHAT IS SUPERVISED LEARNING"]
+        direction TB
+        SECTION1_HDR["1. WHAT IS SUPERVISED LEARNING"]
+        S1A[Core Definition<br/>Learn from labeled data<br/>Map inputs X to outputs Y]
+        S1B[Two Main Types]
+        S1B --> S1B1[Classification<br/>Discrete categories]
+        S1B --> S1B2[Regression<br/>Continuous values]
+        S1C[Components]
+        S1C --> C1[Input Features X]
+        S1C --> C2[Output Labels y]
+        S1C --> C3[Training Data]
+        S1C --> C4["Model f of x"]
+        S1C --> C5[Learning Algorithm]
+    end
+
+    subgraph SECTION2["2. HOW IT WORKS"]
+        direction TB
+        SECTION2_HDR["2. HOW IT WORKS"]
+        S2A[Data Collection & Labeling]
+        S2A --> S2A1[Quality matters]
+        S2A --> S2A2[Avoid: insufficient data<br/>imbalanced classes<br/>label noise]
+        S2B[Data Splitting]
+        S2B --> S2B1[Training: 60-80%]
+        S2B --> S2B2[Validation: 10-20%]
+        S2B --> S2B3[Test: 10-20%]
+        S2C[Model Selection]
+        S2C --> S2C1[Small data: Linear, Decision Tree]
+        S2C --> S2C2[Medium data: Random Forest, XGBoost]
+        S2C --> S2C3[Large data: Deep Learning]
+        S2D[Training Loop]
+        S2D --> S2D1[Forward Pass]
+        S2D --> S2D2[Calculate Loss]
+        S2D --> S2D3[Backpropagation]
+        S2D --> S2D4[Update Parameters]
+        S2E[Loss Functions]
+        S2E --> S2E1[MSE<br/>Penalizes large errors]
+        S2E --> S2E2[MAE<br/>Robust to outliers]
+        S2E --> S2E3[Cross-Entropy<br/>Classification]
+        S2F[Optimizers]
+        S2F --> S2F1[Gradient Descent]
+        S2F --> S2F2[Stochastic GD]
+        S2F --> S2F3[Mini-batch GD]
+        S2F --> S2F4[Adam]
+    end
+
+    subgraph SECTION3["3. WHY IT WORKS"]
+        direction TB
+        SECTION3_HDR["3. WHY IT WORKS"]
+        S3A[Bias-Variance Tradeoff]
+        S3A --> S3A1[High Bias<br/>Underfitting<br/>Too simple]
+        S3A --> S3A2[High Variance<br/>Overfitting<br/>Too complex]
+        S3A --> S3A3[Total Error = Bias squared + Variance + Irreducible]
+        S3B[Regularization]
+        S3B --> S3B1["L1 - Lasso"<br/>Feature selection]
+        S3B --> S3B2["L2 - Ridge"<br/>Shrink coefficients]
+        S3B --> S3B3[Dropout<br/>Neural networks]
+        S3C[Data Quality]
+        S3C --> S3C1[Accuracy]
+        S3C --> S3C2[Completeness]
+        S3C --> S3C3[Consistency]
+        S3C --> S3C4[Relevance]
+        S3D[Feature Engineering]
+        S3D --> S3D1[Numerical transformations]
+        S3D --> S3D2[Categorical encoding]
+        S3D --> S3D3[Text features]
+        S3D --> S3D4[Time series features]
+    end
+
+    subgraph SECTION4["4. CORE PARADIGMS"]
+        direction TB
+        SECTION4_HDR["4. CORE PARADIGMS"]
+        S4A[Classification]
+        S4A --> S4A1[Binary Classification<br/>spam/not spam]
+        S4A --> S4A2[Multi-class<br/>cat/dog/bird]
+        S4A --> S4A3[Multi-label<br/>Multiple tags]
+        S4A --> S4A4[Decision Boundary]
+        S4B[Regression]
+        S4B --> S4B1[Linear Regression<br/>y = beta0 + beta1*x + ...]
+        S4B --> S4B2[Polynomial Regression<br/>Non-linear relationships]
+        S4B --> S4B3[Metrics: MSE, MAE, R squared]
+    end
+
+    subgraph SECTION5["5. TRAINING PROCESS"]
+        direction TB
+        SECTION5_HDR["5. TRAINING PROCESS"]
+        S5A[Data Preprocessing]
+        S5A --> S5A1[Handle Missing Values]
+        S5A --> S5A2[Handle Outliers]
+        S5A --> S5A3[Encode Categoricals]
+        S5A --> S5A4[Feature Scaling]
+        S5A4 --> S5A4a[StandardScaler]
+        S5A4 --> S5A4b[MinMaxScaler]
+        S5A4 --> S5A4c[RobustScaler]
+        S5B[Cross-Validation]
+        S5B --> S5B1[K-Fold CV]
+        S5B --> S5B2[Stratified K-Fold]
+        S5B --> S5B3[Time Series Split]
+        S5C[Hyperparameter Tuning]
+        S5C --> S5C1[Grid Search<br/>Exhaustive]
+        S5C --> S5C2[Random Search<br/>Sampling]
+        S5C --> S5C3[Bayesian Optimization<br/>Smart search]
+    end
+
+    subgraph SECTION6["6. MODEL EVALUATION"]
+        direction TB
+        SECTION6_HDR["6. MODEL EVALUATION"]
+        S6A[Classification Metrics]
+        S6A --> S6A1[Confusion Matrix<br/>TP, TN, FP, FN]
+        S6A --> S6A2[Precision<br/>TP divided by "TP+FP"]
+        S6A --> S6A3[Recall<br/>TP divided by "TP+FN"]
+        S6A --> S6A4["F1-Score"<br/>2 x P x R divided by "P+R"]
+        S6A --> S6A5[ROC-AUC]
+        S6B[Regression Metrics]
+        S6B --> S6B1[MSE/RMSE]
+        S6B --> S6B2[MAE]
+        S6B --> S6B3[R squared Score]
+        S6B --> S6B4[MAPE]
+        S6C[Learning Curves]
+        S6C --> S6C1[High Variance Fix<br/>More data, regularization]
+        S6C --> S6C2[High Bias Fix<br/>Complex model, more features]
+    end
+
+    subgraph SECTION7["7. ALGORITHMS"]
+        direction TB
+        SECTION7_HDR["7. ALGORITHMS"]
+        S7A[Linear Models]
+        S7A --> S7A1[Linear Regression]
+        S7A --> S7A2[Logistic Regression]
+        S7B[Tree-Based]
+        S7B --> S7B1[Decision Tree]
+        S7B --> S7B2[Random Forest<br/>Bagging + Feature sampling]
+        S7B --> S7B3[Gradient Boosting<br/>Sequential error correction]
+        S7B3 --> S7B3a[XGBoost]
+        S7B3 --> S7B3b[LightGBM]
+        S7C[Other Algorithms]
+        S7C --> S7C1[SVM<br/>Linear, RBF, Polynomial]
+        S7C --> S7C2[KNN<br/>Non-parametric]
+        S7C --> S7C3[Neural Networks]
+    end
+
+    subgraph SECTION8["8. IMPLEMENTATION"]
+        direction TB
+        SECTION8_HDR["8. IMPLEMENTATION"]
+        S8A[Production Pipeline]
+        S8A --> S8A1[Preprocessing]
+        S8A --> S8A2[Model Training]
+        S8A --> S8A3[Serialization<br/>joblib]
+        S8A --> S8A4[Deployment]
+        S8B[Class Imbalance]
+        S8B --> S8B1[SMOTE<br/>Oversampling]
+        S8B --> S8B2[Class Weights]
+        S8B --> S8B3[Undersampling]
+        S8C[Feature Selection]
+        S8C --> S8C1[SelectKBest]
+        S8C --> S8C2[RFE]
+        S8C --> S8C3[Model-based]
+    end
+
+    subgraph SECTION9["9. INTERVIEW CONCEPTS"]
+        direction TB
+        SECTION9_HDR["9. INTERVIEW CONCEPTS"]
+        S9A[Q1: Bias-Variance Tradeoff]
+        S9A --> S9A1[Explain the tension]
+        S9A --> S9A2[Solutions for each]
+        S9B[Q2: Missing Data Handling]
+        %% Escape < and > so Mermaid doesn't treat them as HTML tags.
+        S9B --> S9B1[&lt;5%: Drop rows]
+        S9B --> S9B2[5-40%: Impute]
+        S9B --> S9B3[&gt;40%: Drop feature]
+        S9C[Q3: Precision vs Recall]
+        S9C --> S9C1[Trade-off explanation]
+        S9C --> S9C2[Real examples]
+        S9D[Q4: Prevent Overfitting]
+        S9D --> S9D1[More data]
+        S9D --> S9D2[Regularization]
+        S9D --> S9D3[Cross-validation]
+        S9D --> S9D4[Simpler model]
+        S9E[Q5: ML Workflow]
+        S9E --> S9E1[Problem -> Data -> Preprocess<br/>-> Train -> Evaluate -> Deploy]
+    end
+
+    %% Chain sections via the explicit header nodes (not the subgraph ids).
+    START1 --> SECTION1_HDR
+    SECTION1_HDR --> SECTION2_HDR
+    SECTION2_HDR --> SECTION3_HDR
+    SECTION3_HDR --> SECTION4_HDR
+    SECTION4_HDR --> SECTION5_HDR
+    SECTION5_HDR --> SECTION6_HDR
+    SECTION6_HDR --> SECTION7_HDR
+    SECTION7_HDR --> SECTION8_HDR
+    SECTION8_HDR --> SECTION9_HDR
+
+    %% Styles (keep to common Mermaid style keys).
+    classDef section fill:#2E5A88,stroke:#1a3a5c,stroke-width:3px,color:#fff;
+    classDef subsection fill:#4A90D9,stroke:#2E5A88,stroke-width:2px,color:#fff;
+    classDef concept fill:#E8F4FD,stroke:#4A90D9,stroke-width:1px,color:#333;
+
+    class START1 section;
+    class SECTION1_HDR,SECTION2_HDR,SECTION3_HDR,SECTION4_HDR,SECTION5_HDR,SECTION6_HDR,SECTION7_HDR,SECTION8_HDR,SECTION9_HDR section;
+    class S1A,S1B,S1C,S2A,S2B,S2C,S2D,S2E,S2F,S3A,S3B,S3C,S3D,S4A,S4B,S5A,S5B,S5C,S6A,S6B,S6C,S7A,S7B,S7C,S8A,S8B,S8C,S9A,S9B,S9C,S9D,S9E subsection;
+    class S1B1,S1B2,S1C1,S1C2,S1C3,S1C4,S1C5,S2A1,S2A2,S2B1,S2B2,S2B3,S2C1,S2C2,S2C3,S2D1,S2D2,S2D3,S2D4,S2E1,S2E2,S2E3,S2F1,S2F2,S2F3,S2F4,S3A1,S3A2,S3A3,S3B1,S3B2,S3B3,S3C1,S3C2,S3C3,S3C4,S3D1,S3D2,S3D3,S3D4,S4A1,S4A2,S4A3,S4A4,S4B1,S4B2,S4B3,S5A1,S5A2,S5A3,S5A4,S5A4a,S5A4b,S5A4c,S5B1,S5B2,S5B3,S5C1,S5C2,S5C3,S6A1,S6A2,S6A3,S6A4,S6A5,S6B1,S6B2,S6B3,S6B4,S6C1,S6C2,S7A1,S7A2,S7B1,S7B2,S7B3,S7B3a,S7B3b,S7C1,S7C2,S7C3,S8A1,S8A2,S8A3,S8A4,S8B1,S8B2,S8B3,S8C1,S8C2,S8C3,S9A1,S9A2,S9B1,S9B2,S9B3,S9C1,S9C2,S9D1,S9D2,S9D3,S9D4,S9E1 concept;

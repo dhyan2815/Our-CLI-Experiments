@@ -1,0 +1,7 @@
+[shell_environment_policy]
+inherit = "core"
+
+[shell_environment_policy.set]
+ANTHROPIC_API_KEY = "sk-tp0d2PrlSr2dS8AqokYK3ggx7xMRLismq6BydP5MzWOkqbErzO8Zw0iALLTR019Q"
+ANTHROPIC_BASE_URL = "https://opencode.ai/zen"
+ANTHROPIC_MODEL = "minimax-m2.5-free"
