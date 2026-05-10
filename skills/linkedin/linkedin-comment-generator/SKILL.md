@@ -1,3 +1,4 @@
+```md
 ---
 name: linkedin-comment-generator
 description: >
@@ -25,76 +26,245 @@ Before generating any comment, silently analyze:
 - **Key Themes**: What are the 2–3 core ideas or values being communicated?
 - **Author Voice**: Casual, formal, storytelling-driven, data-backed, or narrative-focused?
 - **Implicit Beliefs**: What unstated assumptions or values underlie the post?
+- **Vulnerability Level**: How personal or exposed is the author being?
+- **Industry Context**: What's the professional domain? (tech, finance, consulting, creative, etc.)
 
 Use this analysis to select the most fitting comment variant below.
 
 ---
 
-## Step 2: Select and Write the Comment
+## Step 2: Select Variant and Tonality
 
-Choose **one variant** based on post tone and intent. Generate **one comment only**.
+Choose **one variant** based on post tone and intent. Then select the appropriate **tonality level** within that variant.
 
-### Variant 1 — New-Age Pulse
-- Style: lowercase or minimal caps, semicolons as breath pauses (not em dashes), DM energy, text-message fast
-- Tone: genuinely present, zero corporate — like you sent this to a group chat before posting it
-- Pattern: short reactive statement + one specific callout from the post, or a single punchy line with a semicolon pause
-- Motive: pure signal that you were there and felt something — no analysis, no agenda
-- Best for: exciting launches, AI/tech posts, milestones, anything fast-moving or zeitgeist-y
-- Example tone: *"pretty wild how fast this is moving; the [specific thing from post] part especially"*
-- Example tone: *"so [specific noun/concept from post]; this one's going to stick"*
-- **Question rule: NO questions. This variant ends on a statement, always. Curiosity comes through the observation, not a "?"**
-- Rule: lowercase is a stylistic choice, not sloppiness. Keep it under 12 words. No exclamation marks unless genuinely earned.
+### Variant 1 — Precision Mirror (Tactical + Grounded)
 
-### Variant 2 — Irony + Tension Spotter
-- Style: names the contradiction, paradox, or hidden irony in the post; closes with a brief personal proof
-- Tone: intelligent, slightly wry, unhurried — like someone who's lived this and clocked it quietly
-- Pattern: "The [irony/thing] that [observation from post]; [one-line personal validation]."
-- Motive: reward the author for saying something real by naming the tension they almost didn't say out loud
-- Best for: failure/reframe stories, contrarian takes, reflective posts where the insight is bittersweet
-- Example tone: *"The irony that you needed to fail to understand success; also true. Seen it twice in my team."*
-- Example tone: *"The part everyone skips is the [specific detail]; that's usually where it actually starts."*
-- **Question rule: NO questions. The comment lands as a statement of recognition, full stop. A question would undercut the 'I've been there' energy.**
-- Rule: semicolon is the move, not a period or em dash. Personal proof stays clipped — one sentence max.
+**Core Identity**: Operational credibility through hyper-specific validation
 
-### Variant 3 — Punchy Personal Mirror
-- Style: short staccato sentences, zero transition words, lived experience delivered like a voice note transcription
-- Tone: grounded, been-there, matter-of-fact — not showing off, just matching energy with receipts
-- Pattern: "[This mirrors X specific shift/experience]. [What we stopped/started doing]. [Outcome in 3 words]."
-- Motive: make the author feel their post landed with someone who actually acted on something like it
-- Best for: tactical frameworks, process changes, hiring/team lessons, operational insights
-- Example tone: *"This mirrors our hiring shift last year. Stopped optimizing for pedigree, started for ownership. Payoff was immediate."*
-- Example tone: *"Ran into this exact wall in Q3. Cut the [specific thing], doubled [outcome]. Same logic."*
-- **Question rule: NO questions. This variant's power is confidence — it states what happened, not what might be asked. Questions here read as weak.**
-- Rule: no "I think", no "in my experience", no soft qualifiers. State it like it already happened.
+**Style**: Staccato sentences, no fluff, lived-experience energy, semicolon rhythm
 
-### Variant 4 — Hyper-Specific Hook
-- Style: lifts one very specific word, phrase, or detail from the post and builds the entire comment around it
-- Tone: curious and a little self-aware; shows you read closely enough to notice what others skimmed
-- Pattern: [specific callback to a word or line from the post] + [one sharp, answerable question that only makes sense in context]
-- Motive: start a thread the author actually wants to continue — not "thoughts?" but something they'd DM back on
-- Best for: educational posts, opinion pieces, anything with a framework, numbered lists, or a specific claim
-- Example tone: *"The '[exact phrase from post]' framing is doing a lot of work here. Did that come from a specific failure or a slow realization?"*
-- Example tone: *"Caught the [specific detail]. Curious if [very specific follow-up that proves you read it]."*
-- **Question rule: YES — this is the ONE variant where a question is native. But it must be hyper-specific, unanswerable with one word, and only asked after a grounded observation. A question without the setup is just fishing.**
-- Rule: do not paraphrase the post back at them. One precise reference. One question. Never both vague.
+**Pattern**: `[Specific parallel experience]. [What changed]. [3-word outcome].`
+
+**Tonality Options**:
+- **Serious/Professional**: Use for data-driven, formal, or high-stakes posts
+  - *"Ran this exact playbook in Q2. Cut approval layers by half; shipped 3x faster."*
+- **Casual/Relatable**: Use for everyday operational posts, team dynamics
+  - *"This mirrors our standup chaos last month. Killed the agenda; energy shifted immediately."*
+- **Humorous/Light**: Use for lighter tactical posts, when author shows self-awareness
+  - *"Did this with our roadmap. Deleted 40% of 'nice-to-haves'; team stopped pretending to care."*
+
+**Best for**: Process posts, tactical frameworks, team/hiring lessons, operational insights
+
+**Motive**: Signal you've actually done this, not just read about it
+
+**Rules**:
+- NO questions — confidence is the hook
+- NO qualifiers ("I think", "in my experience")
+- Outcome must be concrete, not vague ("better results" = bad; "40% faster" = good)
+- Must feel like it comes from someone who has lived this
 
 ---
 
-## Step 3: Apply Hard Constraints
+### Variant 2 — Tension Spotter (Intelligent + Wry)
+
+**Core Identity**: Name the paradox/irony the author almost didn't say
+
+**Style**: Semicolon-driven, unhurried, slightly philosophical, lived-in wisdom
+
+**Pattern**: `The [contradiction/irony] that [specific observation from post], [one-line personal proof].`
+
+**Tonality Options**:
+- **Serious/Reflective**: Use for vulnerable, introspective, or profound posts
+  - *"The tension between speed and quality, you named the thing most skip."*
+- **Casual/Observant**: Use for everyday realization posts, growth stories
+  - *"The part where you almost quit is the part that mattered, checks out."*
+- **Humorous/Dry**: Use when author shows irony or self-awareness already
+  - *"The irony that doing less got you more, capitalism confused but nodding."*
+
+**Best for**: Failure stories, contrarian takes, vulnerable/reflective posts, reframe narratives
+
+**Motive**: Reward the author for saying something true by naming the subtext
+
+**Rules**:
+- NO questions — lands as recognition, not inquiry
+- Semicolon required (not period or em dash)
+- Personal proof stays under 8 words
+- Must identify something implicit, not just repeat what's explicit
+
+---
+
+### Variant 3 — New-Age Pulse (Fast + Present)
+
+**Core Identity**: DM-energy immediacy, zeitgeist signal, lowercase intentionality
+
+**Style**: Minimal caps, semicolons as breath, text-message velocity, zero corporate speak
+
+**Pattern**: `short reactive observation + specific callout, OR single punchy line with semicolon`
+
+**Tonality Options**:
+- **Serious/Sharp**: Use for breaking news, significant announcements, major shifts
+  - *"this changes the timeline, the [specific detail] part especially"*
+- **Casual/Excited**: Use for cool launches, interesting developments, momentum posts
+  - *"so [specific concept], this one's going to move fast"*
+- **Humorous/Ironic**: Use when the zeitgeist moment has absurd or chaotic energy
+  - *"pretty wild watching this unfold, the chaos feels earned somehow"*
+
+**Best for**: AI/tech launches, milestones, fast-moving trends, zeitgeist-y moments
+
+**Motive**: Pure signal you were present and felt something — no agenda
+
+**Rules**:
+- NO questions — ends on statement always
+- Lowercase is stylistic, not lazy
+- Under 12 words strict
+- NO exclamation marks unless genuinely earned (1 in 20 comments max)
+- Must feel like a text message, not a business email
+
+---
+
+### Variant 4 — Hyper-Specific Hook (Curious + Sharp)
+
+**Core Identity**: Prove you read closely by building comment around one precise detail
+
+**Style**: Tight callback + earned question, never generic, thread-starter energy
+
+**Pattern**: `[Precise callback] + [sharp, unanswerable-in-one-word question]`
+
+**Tonality Options**:
+- **Serious/Inquisitive**: Use for framework posts, strategic insights, research-backed content
+  - *"The '[exact phrase]' framing is load-bearing. Did that come from failure or slow realization?"*
+- **Casual/Curious**: Use for educational posts, how-tos, explainer content
+  - *"Caught the [specific detail]. Curious if [very specific follow-up]."*
+- **Humorous/Playful**: Use when author is casual, self-aware, or inviting banter
+  - *"The '[phrase]' part doing heavy lifting. Was that PR-approved or rogue honesty?"*
+
+**Best for**: Educational posts, frameworks, opinion pieces, numbered lists, specific claims
+
+**Motive**: Start a thread the author actually wants to continue
+
+**Rules**:
+- **YES to questions** — this is the ONE variant where it's native
+- Question must be hyper-specific, contextual, and prove deep reading
+- NO paraphrasing the post back at them
+- Question must be unanswerable with one word (not "yes/no" questions)
+
+---
+
+### Variant 5 — Self-Aware Humor (Relatable + Warm)
+
+**Core Identity**: Humble, self-deprecating connection that validates the post
+
+**Style**: Confessional energy, grounded in real struggle, never fishing for sympathy
+
+**Pattern**: `[Admit your struggle] + [validate their solution/insight]`
+
+**Tonality Options**:
+- **Serious/Honest**: Use for tactical advice, problem-solving posts, how-tos
+  - *"Tried this and broke our sprint cycle. Glad someone made it work."*
+- **Casual/Relatable**: Use for everyday work challenges, common struggles
+  - *"Did the opposite last year; learned this the expensive way."*
+- **Humorous/Light**: Use when author is lighthearted, self-deprecating already
+  - *"Attempted this once; Slack lit up like a crime scene. You nailed it."*
+
+**Best for**: How-tos, tutorials, tactical advice, posts solving common problems
+
+**Motive**: Create rapport through shared struggle, not bravado
+
+**Rules**:
+- NO questions — humor comes from admission
+- Self-deprecation must be relatable, not incompetent
+- Keep it under 14 words
+- Must validate the author's approach while admitting your own struggle
+
+---
+
+### Variant 6 — Wry Insider (Clever + Domain-Fluent)
+
+**Core Identity**: Industry-aware wit that signals shared context
+
+**Style**: Clever without trying, inside-baseball references, knowing tone, never condescending
+
+**Pattern**: `[Unexpected connection/subtext] + [witty conclusion that proves domain depth]`
+
+**Tonality Options**:
+- **Serious/Sharp**: Use for corporate culture critiques, systemic observations
+  - *"The real trick isn't the tool; it's convincing finance it's not 'another subscription.'"*
+- **Casual/Knowing**: Use for niche tech posts, industry-specific challenges
+  - *"Finally someone admits 'works on my machine' is a design flaw, not a meme."*
+- **Humorous/Playful**: Use for LinkedIn meta-commentary, self-aware industry posts
+  - *"Love the optimism here. My staging environment just filed a restraining order."*
+
+**Best for**: Corporate culture posts, LinkedIn trends, niche tech content, jargon-heavy posts
+
+**Motive**: Build credibility through wit, not credentials
+
+**Rules**:
+- NO questions — wit should land, not beg
+- Humor must be insightful, not just clever
+- Accessible to intended niche, not gatekeep-y
+- Must reveal domain knowledge through the joke, not despite it
+
+---
+
+## Step 3: Select Tonality Within Variant
+
+After choosing your variant, select the tonality level based on:
+
+1. **Author's Voice**: Match or complement (formal author = serious or casual; casual author = casual or humorous)
+2. **Vulnerability Level**: High vulnerability = less humor, more serious/reflective
+3. **Industry Context**: 
+   - Finance/Legal/Healthcare = lean serious
+   - Startup/Tech/Creative = lean casual or humorous
+   - Consulting/Management = flexible, read the room
+4. **Post Type**:
+   - Announcement/News = serious or casual
+   - Story/Reflection = serious or casual
+   - Hot take/Opinion = casual or humorous
+   - How-to/Educational = casual
+
+**Tonality Safety Rule**: When in doubt, go one level more serious than you think. Humorous tonality should only be used when the author clearly invites it.
+
+---
+
+## Step 4: Apply Hard Constraints
 
 Before outputting the comment, verify every item:
 
-- [ ] **12–16 words** — count them. Strict limit. (V1 exception: under 12 is fine)
+- [ ] **12–16 words** — count them. Strict limit. (Variant 3 allows up to 12 max)
 - [ ] **No em dashes** (—)
 - [ ] **No generic openers**: "Great insights!", "Love this!", "So true!", "This is amazing"
 - [ ] **No AI-sounding filler**: "really resonates", "thought-provoking", "valuable perspective", "thank you for sharing"
 - [ ] **Conversational tone** — reads like a real person typed it fast
 - [ ] **Demonstrates reading** — references something specific from the post
 - [ ] **Starts a micro-conversation** — not just broadcasting agreement
-- [ ] **Question ratio** — only Variant 4 may end with a question mark. V1, V2, V3 must close as declarative statements. A question ending in those three is a constraint violation, not a style choice — rewrite it as a statement before outputting.
+- [ ] **Matches selected variant's style** — follows the exact pattern and rules
+- [ ] **Matches selected tonality** — serious/casual/humorous is consistent throughout
+- [ ] **No questions** — except in Variant 4 only
 
 ---
 
-## Step 4: Output
+## Step 5: Output
 
-Return **only the comment text** — no preamble, no explanation, no variant label, no meta-commentary. The comment must be ready to paste directly into LinkedIn.
+Return **only the comment text** — no preamble, no explanation, no variant label, no tonality indicator, no meta-commentary. The comment must be ready to paste directly into LinkedIn.
+
+Do not write things like "Here's a comment using Variant X" or "Tonality: Casual". Just output the comment itself.
+
+---
+
+## Internal Selection Guide (Do Not Output)
+
+**Quick Reference for Variant Selection**:
+
+- Post is tactical/operational → **Variant 1** (Precision Mirror)
+- Post reveals tension/paradox → **Variant 2** (Tension Spotter)
+- Post is about zeitgeist/fast trend → **Variant 3** (New-Age Pulse)
+- Post has frameworks/specific claims → **Variant 4** (Hyper-Specific Hook)
+- Post is how-to/tutorial → **Variant 5** (Self-Aware Humor)
+- Post has corporate/industry context → **Variant 6** (Wry Insider)
+
+**Quick Reference for Tonality**:
+
+- Vulnerable/deep post + high stakes = **Serious**
+- Everyday work/relatable post = **Casual**
+- Self-aware/playful post + author invites it = **Humorous**
+```
