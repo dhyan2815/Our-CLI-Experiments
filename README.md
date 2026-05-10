@@ -57,7 +57,7 @@ Skills are organized into 5 categories:
 | Skill | Function |
 |-------|----------|
 | `linkedin-profile-optimizer` | Rewrite profile for conversions |
-| `linkedin-comment-generator` | Non-generic engagement comments |
+| `linkedin-comment-generator` | Non-generic engagement comments (14 variants: 4 mood + 10 humor) |
 | `pinned-comment` | Signature pinned comments |
 | `analytics-dashboard` | Interactive performance dashboard |
 | `niche-research` | 20 trending stories (7 days) |
