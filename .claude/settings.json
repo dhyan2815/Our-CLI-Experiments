@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "session-memory-updater"
+            "command": "claude agent run session-memory-updater --prompt \"$ARGUMENTS\""
           }
         ]
       }
