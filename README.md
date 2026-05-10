@@ -5,13 +5,14 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Claude-Code-purple?style=flat-square&logo=anthropic" alt="Claude Code">
   <img src="https://img.shields.io/badge/Gemini-CLI-blue?style=flat-square&logo=google" alt="Gemini CLI">
+  <img src="https://img.shields.io/badge/Codex-CLI-orange?style=flat-square&logo=openai" alt="Codex CLI">
   <img src="https://img.shields.io/badge/n8n-Workflow%20Automation-ff6e4c?style=flat-square&logo=n8n" alt="n8n">
   <img src="https://img.shields.io/badge/Status-Experimental-orange?style=flat-square" alt="Status">
 </p>
 
 ## What is This?
 
-A structured playground for experimenting with AI agents and CLI automation tools. Built for rapid prototyping, content generation, and workflow automation using modern agentic AI systems.
+A structured playground for experimenting with AI agents and CLI automation tools. Built for rapid prototyping, content generation, and workflow automation using Claude Code, Gemini CLI, Codex CLI, and n8n.
 
 ### Core Focus Areas
 
@@ -19,6 +20,7 @@ A structured playground for experimenting with AI agents and CLI automation tool
 |------|---------|------|
 | **Claude Code** | Agentic AI for code generation, refactoring, automation | [CLAUDE.md](./CLAUDE.md) |
 | **Gemini CLI** | Workflow automation via Google Gemini models | [GEMINI.md](./GEMINI.md) |
+| **Codex CLI** | OpenAI's CLI for code tasks and agentic workflows | [references/codex-tools.md](./references/codex-tools.md) |
 | **n8n** | Event-driven API/service automations | [`workflows/`](./workflows/) |
 | **Excalidraw** | Architecture & workflow diagrams | [`visuals/`](./visuals/) |
 | **DESIGN.md** | Brand-consistent UI generation system | [`designs/DESIGN.md`](./designs/DESIGN.md) |
