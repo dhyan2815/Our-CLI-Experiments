@@ -47,11 +47,11 @@ Choose **one variant** based on post tone and intent. Then select the appropriat
 
 **Tonality Options**:
 - **Serious/Professional**: Use for data-driven, formal, or high-stakes posts
-  - *"Ran this exact playbook in Q2. Cut approval layers by half; shipped 3x faster."*
+  - *"Ran this exact playbook in Q2. Cut approval layers by half, shipped 3x faster."*
 - **Casual/Relatable**: Use for everyday operational posts, team dynamics
-  - *"This mirrors our standup chaos last month. Killed the agenda; energy shifted immediately."*
+  - *"This mirrors our standup chaos last month. Killed the agenda, energy shifted immediately."*
 - **Humorous/Light**: Use for lighter tactical posts, when author shows self-awareness
-  - *"Did this with our roadmap. Deleted 40% of 'nice-to-haves'; team stopped pretending to care."*
+  - *"Did this with our roadmap. Deleted 40% of 'nice-to-haves', team stopped pretending to care."*
 
 **Best for**: Process posts, tactical frameworks, team/hiring lessons, operational insights
 
@@ -60,7 +60,7 @@ Choose **one variant** based on post tone and intent. Then select the appropriat
 **Rules**:
 - NO questions — confidence is the hook
 - NO qualifiers ("I think", "in my experience")
-- Outcome must be concrete, not vague ("better results" = bad; "40% faster" = good)
+- Outcome must be concrete, not vague ("better results" = bad | "40% faster" = good)
 - Must feel like it comes from someone who has lived this
 
 ---
@@ -162,9 +162,9 @@ Choose **one variant** based on post tone and intent. Then select the appropriat
 - **Serious/Honest**: Use for tactical advice, problem-solving posts, how-tos
   - *"Tried this and broke our sprint cycle. Glad someone made it work."*
 - **Casual/Relatable**: Use for everyday work challenges, common struggles
-  - *"Did the opposite last year; learned this the expensive way."*
+  - *"Did the opposite last year, learned this the expensive way."*
 - **Humorous/Light**: Use when author is lighthearted, self-deprecating already
-  - *"Attempted this once; Slack lit up like a crime scene. You nailed it."*
+  - *"Attempted this once, Slack lit up like a crime scene. You nailed it."*
 
 **Best for**: How-tos, tutorials, tactical advice, posts solving common problems
 
@@ -188,7 +188,7 @@ Choose **one variant** based on post tone and intent. Then select the appropriat
 
 **Tonality Options**:
 - **Serious/Sharp**: Use for corporate culture critiques, systemic observations
-  - *"The real trick isn't the tool; it's convincing finance it's not 'another subscription.'"*
+  - *"The real trick isn't the tool, it's convincing finance it's not 'another subscription.'"*
 - **Casual/Knowing**: Use for niche tech posts, industry-specific challenges
   - *"Finally someone admits 'works on my machine' is a design flaw, not a meme."*
 - **Humorous/Playful**: Use for LinkedIn meta-commentary, self-aware industry posts
@@ -210,7 +210,7 @@ Choose **one variant** based on post tone and intent. Then select the appropriat
 
 After choosing your variant, select the tonality level based on:
 
-1. **Author's Voice**: Match or complement (formal author = serious or casual; casual author = casual or humorous)
+1. **Author's Voice**: Match or complement (formal author = serious or casual, casual author = casual or humorous)
 2. **Vulnerability Level**: High vulnerability = less humor, more serious/reflective
 3. **Industry Context**: 
    - Finance/Legal/Healthcare = lean serious
