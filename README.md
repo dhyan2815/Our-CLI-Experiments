@@ -164,14 +164,11 @@ Each skill follows a consistent pattern:
 
 ## Recent Additions
 
+- **Git Flow commands** — `/release` for release branches with semantic versioning and CHANGELOG generation, `/pr-review` for multi-disciplinary PR reviews
+- **Architecture documentation generator** — `/create-architecture-documentation` with C4 model, Arc42, ADRs, PlantUML, and automated diagram generation
+- **Skills system architecture** — Full architecture doc mapping 58 skills across 7 categories with Mermaid diagrams and architectural decisions
 - **visual-explainer** — HTML diagram generation for architecture, flowcharts, diff reviews, slides, and data tables (by nicobailon)
-- **Supervised Learning Flowchart** — Visual diagram for understanding supervised ML concepts
 - **Apify skills** (5) — Actor development, content analysis, lead generation, market research, trend analysis with full reference docs and actor scripts
-- **ai-wrapper-product** skill for AI wrapper product development
-- **website-to-hyperframes** skill for converting websites to promotional videos
-- **project-idea-validator** skill for researching project ideas against live data
-- **use-tinyfish** skill for web scraping and automation using natural language
-- **AuraOne Product Launch** demonstration workflow showing video creation capabilities
 
 ---
 
