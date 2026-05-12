@@ -71,6 +71,7 @@ Skills are organized into 5 categories:
 
 | Skill | Function |
 |-------|----------|
+| `visual-explainer` | HTML diagrams, slides, diff/plan reviews, data tables |
 | `skills-mcp-builder` | Build MCP servers ([reference](https://modelcontextprotocol.io/)) |
 | `skills-md-to-pdf-converter` | Markdown → PDF reports |
 | `design-doc-mermaid` | Mermaid diagrams |
@@ -163,6 +164,7 @@ Each skill follows a consistent pattern:
 
 ## Recent Additions
 
+- **visual-explainer** — HTML diagram generation for architecture, flowcharts, diff reviews, slides, and data tables (by nicobailon)
 - **Supervised Learning Flowchart** — Visual diagram for understanding supervised ML concepts
 - **Apify skills** (5) — Actor development, content analysis, lead generation, market research, trend analysis with full reference docs and actor scripts
 - **ai-wrapper-product** skill for AI wrapper product development
