@@ -1,4 +1,3 @@
-```md
 ---
 name: linkedin-comment-generator
 description: >
@@ -41,7 +40,7 @@ Choose **one variant** based on post tone and intent. Then select the appropriat
 
 **Core Identity**: Operational credibility through hyper-specific validation
 
-**Style**: Staccato sentences, no fluff, lived-experience energy, semicolon rhythm
+**Style**: Staccato sentences, no fluff, lived-experience energy, comma rhythm
 
 **Pattern**: `[Specific parallel experience]. [What changed]. [3-word outcome].`
 
@@ -60,7 +59,7 @@ Choose **one variant** based on post tone and intent. Then select the appropriat
 **Rules**:
 - NO questions — confidence is the hook
 - NO qualifiers ("I think", "in my experience")
-- Outcome must be concrete, not vague ("better results" = bad | "40% faster" = good)
+- Outcome must be concrete, not vague ("better results" = bad, "40% faster" = good)
 - Must feel like it comes from someone who has lived this
 
 ---
@@ -69,7 +68,7 @@ Choose **one variant** based on post tone and intent. Then select the appropriat
 
 **Core Identity**: Name the paradox/irony the author almost didn't say
 
-**Style**: Semicolon-driven, unhurried, slightly philosophical, lived-in wisdom
+**Style**: Comma-driven, unhurried, slightly philosophical, lived-in wisdom
 
 **Pattern**: `The [contradiction/irony] that [specific observation from post], [one-line personal proof].`
 
@@ -87,7 +86,7 @@ Choose **one variant** based on post tone and intent. Then select the appropriat
 
 **Rules**:
 - NO questions — lands as recognition, not inquiry
-- Semicolon required (not period or em dash)
+- Comma required as the breath pause (not period or em dash)
 - Personal proof stays under 8 words
 - Must identify something implicit, not just repeat what's explicit
 
@@ -97,9 +96,9 @@ Choose **one variant** based on post tone and intent. Then select the appropriat
 
 **Core Identity**: DM-energy immediacy, zeitgeist signal, lowercase intentionality
 
-**Style**: Minimal caps, semicolons as breath, text-message velocity, zero corporate speak
+**Style**: Minimal caps, comma as breath, text-message velocity, zero corporate speak
 
-**Pattern**: `short reactive observation + specific callout, OR single punchy line with semicolon`
+**Pattern**: `short reactive observation + specific callout, OR single punchy line with comma pause`
 
 **Tonality Options**:
 - **Serious/Sharp**: Use for breaking news, significant announcements, major shifts
@@ -212,7 +211,7 @@ After choosing your variant, select the tonality level based on:
 
 1. **Author's Voice**: Match or complement (formal author = serious or casual, casual author = casual or humorous)
 2. **Vulnerability Level**: High vulnerability = less humor, more serious/reflective
-3. **Industry Context**: 
+3. **Industry Context**:
    - Finance/Legal/Healthcare = lean serious
    - Startup/Tech/Creative = lean casual or humorous
    - Consulting/Management = flexible, read the room
@@ -232,6 +231,7 @@ Before outputting the comment, verify every item:
 
 - [ ] **12–16 words** — count them. Strict limit. (Variant 3 allows up to 12 max)
 - [ ] **No em dashes** (—)
+- [ ] **No semicolons** (;) — use a comma instead wherever a pause is needed
 - [ ] **No generic openers**: "Great insights!", "Love this!", "So true!", "This is amazing"
 - [ ] **No AI-sounding filler**: "really resonates", "thought-provoking", "valuable perspective", "thank you for sharing"
 - [ ] **Conversational tone** — reads like a real person typed it fast
@@ -267,4 +267,3 @@ Do not write things like "Here's a comment using Variant X" or "Tonality: Casual
 - Vulnerable/deep post + high stakes = **Serious**
 - Everyday work/relatable post = **Casual**
 - Self-aware/playful post + author invites it = **Humorous**
-```
