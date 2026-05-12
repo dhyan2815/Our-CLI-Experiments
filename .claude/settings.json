@@ -1,17 +1,4 @@
 {
-  "hooks": {
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "claude agent run session-memory-updater --prompt \"$ARGUMENTS\""
-          }
-        ]
-      }
-    ]
-  },
   "permissions": {
     "allow": [
       "Read(**)",
