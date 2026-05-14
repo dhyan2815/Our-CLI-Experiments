@@ -1,0 +1,444 @@
+{
+  "nodes": [
+    {
+      "id": "file:.claude/skills/apify-lead-generation/reference/scripts/run_actor.js",
+      "type": "file",
+      "name": "run_actor.js",
+      "filePath": ".claude/skills/apify-lead-generation/reference/scripts/run_actor.js",
+      "summary": "Node.js script that runs Apify actors with configurable input, polls for completion, and exports results to CSV or JSON format with quick-answer display mode.",
+      "tags": ["utility", "script", "apify", "data-export"],
+      "complexity": "moderate",
+      "languageNotes": "Uses native fetch API, parseArgs for CLI, and supports both file export and chat display modes."
+    },
+    {
+      "id": "document:.claude/skills/apify-market-research/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/apify-market-research/SKILL.md",
+      "summary": "Skill for conducting market research using Apify Actors to extract data from Google Maps, Facebook, Instagram, Booking.com, and TripAdvisor with a 5-step workflow.",
+      "tags": ["documentation", "skill", "market-research", "data-collection"],
+      "complexity": "moderate",
+      "languageNotes": "Provides Actor selection table with 15+ Actors for different research needs and CLI examples for running the script."
+    },
+    {
+      "id": "file:.claude/skills/apify-market-research/reference/scripts/run_actor.js",
+      "type": "file",
+      "name": "run_actor.js",
+      "filePath": ".claude/skills/apify-market-research/reference/scripts/run_actor.js",
+      "summary": "Node.js script that runs Apify actors with configurable input, polls for completion, and exports results to CSV or JSON format with quick-answer display mode.",
+      "tags": ["utility", "script", "apify", "data-export"],
+      "complexity": "moderate",
+      "languageNotes": "Uses native fetch API, parseArgs for CLI, and supports both file export and chat display modes."
+    },
+    {
+      "id": "document:.claude/skills/apify-trend-analysis/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/apify-trend-analysis/SKILL.md",
+      "summary": "Skill for trend analysis using Apify Actors to extract Google Trends data and analyze search trends, related queries, and rising trends across categories.",
+      "tags": ["documentation", "skill", "trend-analysis", "data-collection"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.claude/skills/apify-trend-analysis/reference/scripts/run_actor.js",
+      "type": "file",
+      "name": "run_actor.js",
+      "filePath": ".claude/skills/apify-trend-analysis/reference/scripts/run_actor.js",
+      "summary": "Node.js script that runs Apify actors with configurable input, polls for completion, and exports results to CSV or JSON format with quick-answer display mode.",
+      "tags": ["utility", "script", "apify", "data-export"],
+      "complexity": "moderate",
+      "languageNotes": "Uses native fetch API, parseArgs for CLI, and supports both file export and chat display modes."
+    },
+    {
+      "id": "document:.claude/skills/canvas-design/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/canvas-design/SKILL.md",
+      "summary": "Skill for creating visual designs using Gemini CLI with Canvas integration, supporting images, HTML, SVGs, and interactive prototypes with real-time preview.",
+      "tags": ["documentation", "skill", "design", "visual"],
+      "complexity": "moderate",
+      "languageNotes": "Describes Canvas as a visual workspace where Gemini can generate and iterate on visual content."
+    },
+    {
+      "id": "document:.claude/skills/content-matrix/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/content-matrix/SKILL.md",
+      "summary": "Skill for creating content marketing matrices that map content types to audience segments and funnel stages with strategic alignment recommendations.",
+      "tags": ["documentation", "skill", "marketing", "content-strategy"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/creating-pr/EXAMPLES.md",
+      "type": "document",
+      "name": "EXAMPLES.md",
+      "filePath": ".claude/skills/creating-pr/EXAMPLES.md",
+      "summary": "Examples demonstrating how to use the creating-pr skill with different scenarios including feature additions, bug fixes, refactoring, and documentation updates.",
+      "tags": ["documentation", "examples", "pull-request"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/creating-pr/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/creating-pr/SKILL.md",
+      "summary": "Comprehensive skill for creating and managing pull requests with branch creation, commit best practices, PR description templates, and code review preparation.",
+      "tags": ["documentation", "skill", "git", "pull-request", "workflow"],
+      "complexity": "complex",
+      "languageNotes": "Detailed workflow with commit message conventions, branch naming, and PR description templates."
+    },
+    {
+      "id": "document:.claude/skills/creating-pr/TROUBLESHOOTING.md",
+      "type": "document",
+      "name": "TROUBLESHOOTING.md",
+      "filePath": ".claude/skills/creating-pr/TROUBLESHOOTING.md",
+      "summary": "Troubleshooting guide for common issues when creating pull requests including merge conflicts, detached HEAD, and rebasing problems.",
+      "tags": ["documentation", "troubleshooting", "git"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/creating-pr/WORKFLOW.md",
+      "type": "document",
+      "name": "WORKFLOW.md",
+      "filePath": ".claude/skills/creating-pr/WORKFLOW.md",
+      "summary": "Workflow documentation describing the step-by-step process for creating pull requests from branch creation through review and merging.",
+      "tags": ["documentation", "workflow", "pull-request"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/HIGH_CONTRAST_UPDATE.md",
+      "type": "document",
+      "name": "HIGH_CONTRAST_UPDATE.md",
+      "filePath": ".claude/skills/design-doc-mermaid/HIGH_CONTRAST_UPDATE.md",
+      "summary": "Update notes for high contrast mode in Mermaid diagram rendering, improving visibility with dark backgrounds and brighter colors.",
+      "tags": ["documentation", "mermaid", "accessibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/design-doc-mermaid/SKILL.md",
+      "summary": "Comprehensive skill for creating technical design documents using Mermaid diagrams including API, architecture, database, feature, and system design templates.",
+      "tags": ["documentation", "skill", "mermaid", "design", "diagrams"],
+      "complexity": "complex",
+      "languageNotes": "Contains 5 design templates, example projects for 6 tech stacks, and guides for 5 diagram types."
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/assets/api-design-template.md",
+      "type": "document",
+      "name": "api-design-template.md",
+      "filePath": ".claude/skills/design-doc-mermaid/assets/api-design-template.md",
+      "summary": "Template for documenting REST API design including endpoints, request/response schemas, authentication, error handling, and rate limiting.",
+      "tags": ["documentation", "template", "api", "design"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/assets/architecture-design-template.md",
+      "type": "document",
+      "name": "architecture-design-template.md",
+      "filePath": ".claude/skills/design-doc-mermaid/assets/architecture-design-template.md",
+      "summary": "Template for system architecture design documenting components, interactions, data flow, technology stack, and scalability considerations.",
+      "tags": ["documentation", "template", "architecture", "design"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/assets/database-design-template.md",
+      "type": "document",
+      "name": "database-design-template.md",
+      "filePath": ".claude/skills/design-doc-mermaid/assets/database-design-template.md",
+      "summary": "Template for database design including entity-relationship diagrams, table schemas, indexes, and data migration strategies.",
+      "tags": ["documentation", "template", "database", "design"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/assets/feature-design-template.md",
+      "type": "document",
+      "name": "feature-design-template.md",
+      "filePath": ".claude/skills/design-doc-mermaid/assets/feature-design-template.md",
+      "summary": "Template for feature design documents including problem statement, requirements, solution approach, user flows, and acceptance criteria.",
+      "tags": ["documentation", "template", "feature", "design"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/assets/system-design-template.md",
+      "type": "document",
+      "name": "system-design-template.md",
+      "filePath": ".claude/skills/design-doc-mermaid/assets/system-design-template.md",
+      "summary": "Template for system design documents covering overview, functional requirements, non-functional requirements, and high-level architecture.",
+      "tags": ["documentation", "template", "system", "design"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/examples/fastapi/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": ".claude/skills/design-doc-mermaid/examples/fastapi/README.md",
+      "summary": "Example FastAPI project demonstrating how to use Mermaid diagrams for API design documentation with Python FastAPI framework.",
+      "tags": ["documentation", "example", "fastapi", "python"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/examples/java-webapp/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": ".claude/skills/design-doc-mermaid/examples/java-webapp/README.md",
+      "summary": "Example Java web application project demonstrating Mermaid diagrams for architecture and database design documentation.",
+      "tags": ["documentation", "example", "java", "webapp"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/examples/node-webapp/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": ".claude/skills/design-doc-mermaid/examples/node-webapp/README.md",
+      "summary": "Example Node.js web application demonstrating Mermaid diagrams for system design with Express.js framework.",
+      "tags": ["documentation", "example", "nodejs", "webapp"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/examples/python-etl/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": ".claude/skills/design-doc-mermaid/examples/python-etl/README.md",
+      "summary": "Example Python ETL pipeline project demonstrating Mermaid diagrams for data flow and architecture design.",
+      "tags": ["documentation", "example", "python", "etl"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/examples/react/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": ".claude/skills/design-doc-mermaid/examples/react/README.md",
+      "summary": "Example React application demonstrating Mermaid diagrams for frontend architecture and component design.",
+      "tags": ["documentation", "example", "react", "frontend"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/examples/spring-boot/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": ".claude/skills/design-doc-mermaid/examples/spring-boot/README.md",
+      "summary": "Example Spring Boot application demonstrating Mermaid diagrams for microservices architecture design.",
+      "tags": ["documentation", "example", "spring-boot", "java"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/references/guides/code-to-diagram/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": ".claude/skills/design-doc-mermaid/references/guides/code-to-diagram/README.md",
+      "summary": "Guide for converting code structures into Mermaid diagrams including class diagrams, sequence diagrams, and state diagrams.",
+      "tags": ["documentation", "guide", "mermaid", "diagrams"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/references/guides/diagrams/activity-diagrams.md",
+      "type": "document",
+      "name": "activity-diagrams.md",
+      "filePath": ".claude/skills/design-doc-mermaid/references/guides/diagrams/activity-diagrams.md",
+      "summary": "Reference guide for Mermaid activity diagrams showing syntax, flowchart styles, parallel actions, and use case examples.",
+      "tags": ["documentation", "guide", "mermaid", "activity-diagram"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/references/guides/diagrams/architecture-diagrams.md",
+      "type": "document",
+      "name": "architecture-diagrams.md",
+      "filePath": ".claude/skills/design-doc-mermaid/references/guides/diagrams/architecture-diagrams.md",
+      "summary": "Reference guide for creating architecture diagrams with Mermaid including C4 models, deployment diagrams, and component relationships.",
+      "tags": ["documentation", "guide", "mermaid", "architecture"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/references/guides/diagrams/deployment-diagrams.md",
+      "type": "document",
+      "name": "deployment-diagrams.md",
+      "filePath": ".claude/skills/design-doc-mermaid/references/guides/diagrams/deployment-diagrams.md",
+      "summary": "Reference guide for Mermaid deployment diagrams showing infrastructure layout, container relationships, and scaling considerations.",
+      "tags": ["documentation", "guide", "mermaid", "deployment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/references/guides/diagrams/sequence-diagrams.md",
+      "type": "document",
+      "name": "sequence-diagrams.md",
+      "filePath": ".claude/skills/design-doc-mermaid/references/guides/diagrams/sequence-diagrams.md",
+      "summary": "Reference guide for Mermaid sequence diagrams showing actor interactions, message flows, loops, and alt branches.",
+      "tags": ["documentation", "guide", "mermaid", "sequence-diagram"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/design-doc-mermaid/references/guides/resilient-workflow.md",
+      "type": "document",
+      "name": "resilient-workflow.md",
+      "filePath": ".claude/skills/design-doc-mermaid/references/guides/resilient-workflow.md",
+      "summary": "Guide for creating resilient design document workflows with error recovery, draft management, and iterative refinement strategies.",
+      "tags": ["documentation", "guide", "workflow", "best-practices"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.claude/skills/apify-market-research/SKILL.md",
+      "target": "file:.claude/skills/apify-market-research/reference/scripts/run_actor.js",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/apify-trend-analysis/SKILL.md",
+      "target": "file:.claude/skills/apify-trend-analysis/reference/scripts/run_actor.js",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/apify-lead-generation/SKILL.md",
+      "target": "file:.claude/skills/apify-lead-generation/reference/scripts/run_actor.js",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/assets/api-design-template.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/assets/architecture-design-template.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/assets/database-design-template.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/assets/feature-design-template.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/assets/system-design-template.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/examples/fastapi/README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/examples/java-webapp/README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/examples/node-webapp/README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/examples/python-etl/README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/examples/react/README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/examples/spring-boot/README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/references/guides/code-to-diagram/README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/references/guides/diagrams/activity-diagrams.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/references/guides/diagrams/architecture-diagrams.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/references/guides/diagrams/deployment-diagrams.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/references/guides/diagrams/sequence-diagrams.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/design-doc-mermaid/SKILL.md",
+      "target": "document:.claude/skills/design-doc-mermaid/references/guides/resilient-workflow.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/creating-pr/SKILL.md",
+      "target": "document:.claude/skills/creating-pr/EXAMPLES.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/creating-pr/SKILL.md",
+      "target": "document:.claude/skills/creating-pr/TROUBLESHOOTING.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/creating-pr/SKILL.md",
+      "target": "document:.claude/skills/creating-pr/WORKFLOW.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

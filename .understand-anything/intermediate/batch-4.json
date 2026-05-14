@@ -1,0 +1,459 @@
+{
+  "nodes": [
+    {
+      "id": "document:.claude/skills/pr-comment/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/pr-comment/SKILL.md",
+      "summary": "Skill for posting comments on pull requests with support for file/line-specific comments and various use cases like review requests and decision documentation.",
+      "tags": ["documentation", "github", "pr-tools", "cli"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/profile-optimizer/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/profile-optimizer/SKILL.md",
+      "summary": "Skill for optimizing LinkedIn profiles through analysis, keyword extraction, and structured improvement recommendations.",
+      "tags": ["documentation", "linkedin", "career", "optimization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/project-idea-validator/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": ".claude/skills/project-idea-validator/README.md",
+      "summary": "Project overview and quick start guide for the project idea validator skill.",
+      "tags": ["documentation", "overview", "getting-started"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/project-idea-validator/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/project-idea-validator/SKILL.md",
+      "summary": "Skill for validating project ideas through feasibility analysis, market potential assessment, and technical complexity evaluation.",
+      "tags": ["documentation", "project-management", "validation", " ideation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/quote-post/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/quote-post/SKILL.md",
+      "summary": "Skill for creating and posting quote content to social media platforms with formatting and engagement optimization.",
+      "tags": ["documentation", "social-media", "content-creation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/readme-generator/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/readme-generator/SKILL.md",
+      "summary": "Skill for automatically generating comprehensive README documentation by analyzing project structure, dependencies, and code patterns.",
+      "tags": ["documentation", "automation", "code-generation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.claude/skills/readme-generator/plugin.json",
+      "type": "config",
+      "name": "plugin.json",
+      "filePath": ".claude/skills/readme-generator/plugin.json",
+      "summary": "Plugin configuration for readme-generator skill defining name, version, author, and skills entry point.",
+      "tags": ["configuration", "plugin", "metadata"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/reels-scripting/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/reels-scripting/SKILL.md",
+      "summary": "Skill for scripting short-form video content (reels/shorts) with narrative structure, hooks, and engagement optimization.",
+      "tags": ["documentation", "video", "content-scripting", "social-media"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/skills-mcp-builder/LICENSE.txt",
+      "type": "document",
+      "name": "LICENSE.txt",
+      "filePath": ".claude/skills/skills-mcp-builder/LICENSE.txt",
+      "summary": "License file for the skills-mcp-builder project (contents not read).",
+      "tags": ["documentation", "license"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/skills-mcp-builder/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/skills-mcp-builder/SKILL.md",
+      "summary": "Comprehensive guide for building high-quality MCP (Model Context Protocol) servers in Python and TypeScript with phases for research, implementation, testing, and evaluation.",
+      "tags": ["documentation", "mcp", "server-development", "guide"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:.claude/skills/skills-mcp-builder/reference/evaluation.md",
+      "type": "document",
+      "name": "evaluation.md",
+      "filePath": ".claude/skills/skills-mcp-builder/reference/evaluation.md",
+      "summary": "Guide for creating evaluation tests for MCP servers including question generation, answer verification, and XML format specifications.",
+      "tags": ["documentation", "mcp", "testing", "evaluation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/skills-mcp-builder/reference/mcp_best_practices.md",
+      "type": "document",
+      "name": "mcp_best_practices.md",
+      "filePath": ".claude/skills/skills-mcp-builder/reference/mcp_best_practices.md",
+      "summary": "Core best practices for MCP server development including naming conventions, response formats, pagination, transport selection, and security standards.",
+      "tags": ["documentation", "mcp", "best-practices", "standards"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/skills-mcp-builder/reference/node_mcp_server.md",
+      "type": "document",
+      "name": "node_mcp_server.md",
+      "filePath": ".claude/skills/skills-mcp-builder/reference/node_mcp_server.md",
+      "summary": "TypeScript implementation guide for MCP servers using the official SDK with project structure, Zod schemas, and tool registration patterns.",
+      "tags": ["documentation", "mcp", "typescript", "implementation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/skills/skills-mcp-builder/reference/python_mcp_server.md",
+      "type": "document",
+      "name": "python_mcp_server.md",
+      "filePath": ".claude/skills/skills-mcp-builder/reference/python_mcp_server.md",
+      "summary": "Python implementation guide for MCP servers using FastMCP with Pydantic models, tool decorators, and async patterns.",
+      "tags": ["documentation", "mcp", "python", "implementation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.claude/skills/skills-mcp-builder/scripts/connections.py",
+      "type": "file",
+      "name": "connections.py",
+      "filePath": ".claude/skills/skills-mcp-builder/scripts/connections.py",
+      "summary": "Python module providing MCP connection abstractions for stdio, SSE, and HTTP transports with async context manager support.",
+      "tags": ["code", "mcp", "connection", "transport"],
+      "complexity": "moderate",
+      "languageNotes": "Uses abc for abstract base classes, AsyncExitStack for resource management, supports stdio/SSE/HTTP transports."
+    },
+    {
+      "id": "function:.claude/skills/skills-mcp-builder/scripts/connections.py:MCPConnection",
+      "type": "function",
+      "name": "MCPConnection",
+      "filePath": ".claude/skills/skills-mcp-builder/scripts/connections.py",
+      "lineRange": [13, 71],
+      "summary": "Abstract base class for MCP server connections with async context manager support for session lifecycle management.",
+      "tags": ["abstraction", "mcp", "connection"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.claude/skills/skills-mcp-builder/scripts/connections.py:create_connection",
+      "type": "function",
+      "name": "create_connection",
+      "filePath": ".claude/skills/skills-mcp-builder/scripts/connections.py",
+      "lineRange": [112, 151],
+      "summary": "Factory function to create appropriate MCP connection based on transport type with validation for required parameters.",
+      "tags": ["factory", "mcp", "connection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.claude/skills/skills-mcp-builder/scripts/evaluation.py",
+      "type": "file",
+      "name": "evaluation.py",
+      "filePath": ".claude/skills/skills-mcp-builder/scripts/evaluation.py",
+      "summary": "MCP server evaluation harness that runs test questions against MCP servers using Claude and generates detailed evaluation reports.",
+      "tags": ["code", "testing", "evaluation", "mcp"],
+      "complexity": "complex",
+      "languageNotes": "Full evaluation framework with agent loop, tool metrics tracking, XML parsing, and report generation."
+    },
+    {
+      "id": "function:.claude/skills/skills-mcp-builder/scripts/evaluation.py:agent_loop",
+      "type": "function",
+      "name": "agent_loop",
+      "filePath": ".claude/skills/skills-mcp-builder/scripts/evaluation.py",
+      "lineRange": [86, 151],
+      "summary": "Runs the agent loop with MCP tools, handling tool use calls and accumulating metrics for each tool invocation.",
+      "tags": ["agent", "loop", "mcp", "evaluation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:.claude/skills/skills-mcp-builder/scripts/evaluation.py:run_evaluation",
+      "type": "function",
+      "name": "run_evaluation",
+      "filePath": ".claude/skills/skills-mcp-builder/scripts/evaluation.py",
+      "lineRange": [220, 272],
+      "summary": "Main evaluation runner that loads tools, parses evaluation questions, executes tasks, and generates formatted report.",
+      "tags": ["evaluation", "runner", "report"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.claude/skills/skills-mcp-builder/scripts/example_evaluation.xml",
+      "type": "file",
+      "name": "example_evaluation.xml",
+      "filePath": ".claude/skills/skills-mcp-builder/scripts/example_evaluation.xml",
+      "summary": "Example XML file demonstrating the evaluation format with qa_pair elements containing question and answer pairs.",
+      "tags": ["data", "example", "evaluation", "xml"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.claude/skills/skills-mcp-builder/scripts/requirements.txt",
+      "type": "config",
+      "name": "requirements.txt",
+      "filePath": ".claude/skills/skills-mcp-builder/scripts/requirements.txt",
+      "summary": "Python dependencies for the MCP evaluation scripts including anthropic and mcp packages.",
+      "tags": ["configuration", "dependencies", "python"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/skills-md-to-pdf-converter/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/skills-md-to-pdf-converter/SKILL.md",
+      "summary": "Skill for converting Markdown files to PDF documents with styling and formatting options.",
+      "tags": ["documentation", "conversion", "pdf", "markdown"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/use-tinyfish/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/use-tinyfish/SKILL.md",
+      "summary": "Skill for using the Tinyfish tool - purpose and functionality not fully determined from file.",
+      "tags": ["documentation", "tool", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.claude/skills/visual-explainer/.claude-plugin/plugin.json",
+      "type": "config",
+      "name": "plugin.json",
+      "filePath": ".claude/skills/visual-explainer/.claude-plugin/plugin.json",
+      "summary": "Plugin configuration for visual-explainer skill defining version 0.7.1, author, repository, and MIT license.",
+      "tags": ["configuration", "plugin", "metadata"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/visual-explainer/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/visual-explainer/SKILL.md",
+      "summary": "Comprehensive skill for generating self-contained HTML visual explanations including diagrams, architecture overviews, diff reviews, data tables, and slide decks with aesthetic guidelines and quality checks.",
+      "tags": ["documentation", "visualization", "html", "diagrams", "presentation"],
+      "complexity": "complex",
+      "languageNotes": "Extensive documentation covering 8 commands, Mermaid integration, CSS patterns, slide deck mode, and anti-patterns to avoid."
+    },
+    {
+      "id": "document:.claude/skills/visual-explainer/commands/diff-review.md",
+      "type": "document",
+      "name": "diff-review.md",
+      "filePath": ".claude/skills/visual-explainer/commands/diff-review.md",
+      "summary": "Command template for generating visual diff reviews with architecture comparison and code review capabilities.",
+      "tags": ["documentation", "command", "diff", "review"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/visual-explainer/commands/fact-check.md",
+      "type": "document",
+      "name": "fact-check.md",
+      "filePath": ".claude/skills/visual-explainer/commands/fact-check.md",
+      "summary": "Command template for verifying accuracy of documentation against actual code implementation.",
+      "tags": ["documentation", "command", "verification", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/visual-explainer/commands/generate-slides.md",
+      "type": "document",
+      "name": "generate-slides.md",
+      "filePath": ".claude/skills/visual-explainer/commands/generate-slides.md",
+      "summary": "Command template for generating magazine-quality slide deck presentations from content.",
+      "tags": ["documentation", "command", "slides", "presentation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/visual-explainer/commands/generate-visual-plan.md",
+      "type": "document",
+      "name": "generate-visual-plan.md",
+      "filePath": ".claude/skills/visual-explainer/commands/generate-visual-plan.md",
+      "summary": "Command template for generating visual implementation plans for features with file structures and key snippets.",
+      "tags": ["documentation", "command", "planning", "implementation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/visual-explainer/commands/generate-web-diagram.md",
+      "type": "document",
+      "name": "generate-web-diagram.md",
+      "filePath": ".claude/skills/visual-explainer/commands/generate-web-diagram.md",
+      "summary": "Command template for generating HTML diagrams for any topic with various diagram types support.",
+      "tags": ["documentation", "command", "diagram", "visualization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/visual-explainer/commands/plan-review.md",
+      "type": "document",
+      "name": "plan-review.md",
+      "filePath": ".claude/skills/visual-explainer/commands/plan-review.md",
+      "summary": "Command template for comparing implementation plans against codebase with risk assessment.",
+      "tags": ["documentation", "command", "plan", "review", "risk"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/visual-explainer/commands/project-recap.md",
+      "type": "document",
+      "name": "project-recap.md",
+      "filePath": ".claude/skills/visual-explainer/commands/project-recap.md",
+      "summary": "Command template for generating mental model snapshots for context-switching between projects.",
+      "tags": ["documentation", "command", "recap", "context"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/skills/visual-explainer/commands/share-page.md",
+      "type": "document",
+      "name": "share-page.md",
+      "filePath": ".claude/skills/visual-explainer/commands/share-page.md",
+      "summary": "Command template for deploying HTML pages to Vercel and getting shareable live URLs.",
+      "tags": ["documentation", "command", "deployment", "sharing"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.claude/skills/skills-mcp-builder/SKILL.md",
+      "target": "document:.claude/skills/skills-mcp-builder/reference/evaluation.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/skills-mcp-builder/SKILL.md",
+      "target": "document:.claude/skills/skills-mcp-builder/reference/mcp_best_practices.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/skills-mcp-builder/SKILL.md",
+      "target": "document:.claude/skills/skills-mcp-builder/reference/node_mcp_server.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/skills-mcp-builder/SKILL.md",
+      "target": "document:.claude/skills/skills-mcp-builder/reference/python_mcp_server.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/skills-mcp-builder/SKILL.md",
+      "target": "file:.claude/skills/skills-mcp-builder/scripts/connections.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/skills-mcp-builder/SKILL.md",
+      "target": "file:.claude/skills/skills-mcp-builder/scripts/evaluation.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/skills-mcp-builder/SKILL.md",
+      "target": "file:.claude/skills/skills-mcp-builder/scripts/example_evaluation.xml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:.claude/skills/skills-mcp-builder/scripts/evaluation.py",
+      "target": "file:.claude/skills/skills-mcp-builder/scripts/connections.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:.claude/skills/skills-mcp-builder/scripts/evaluation.py",
+      "target": "function:.claude/skills/skills-mcp-builder/scripts/connections.py:create_connection",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "document:.claude/skills/visual-explainer/SKILL.md",
+      "target": "document:.claude/skills/visual-explainer/commands/diff-review.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/visual-explainer/SKILL.md",
+      "target": "document:.claude/skills/visual-explainer/commands/fact-check.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/visual-explainer/SKILL.md",
+      "target": "document:.claude/skills/visual-explainer/commands/generate-slides.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/visual-explainer/SKILL.md",
+      "target": "document:.claude/skills/visual-explainer/commands/generate-visual-plan.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/visual-explainer/SKILL.md",
+      "target": "document:.claude/skills/visual-explainer/commands/generate-web-diagram.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/visual-explainer/SKILL.md",
+      "target": "document:.claude/skills/visual-explainer/commands/plan-review.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/visual-explainer/SKILL.md",
+      "target": "document:.claude/skills/visual-explainer/commands/project-recap.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/visual-explainer/SKILL.md",
+      "target": "document:.claude/skills/visual-explainer/commands/share-page.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/skills/visual-explainer/SKILL.md",
+      "target": "config:.claude/skills/visual-explainer/.claude-plugin/plugin.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:.claude/skills/readme-generator/SKILL.md",
+      "target": "config:.claude/skills/readme-generator/plugin.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:.claude/skills/project-idea-validator/README.md",
+      "target": "document:.claude/skills/project-idea-validator/SKILL.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}
