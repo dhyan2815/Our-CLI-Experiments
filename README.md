@@ -168,9 +168,6 @@ Each skill follows a consistent pattern:
 - **Knowledge graph work tree** — `.understand-anything/` with scan scripts, batch processing outputs, and analyzer inputs (subsequently removed)
 - **Git Flow commands** — `/release` for release branches with semantic versioning and CHANGELOG generation, `/pr-review` for multi-disciplinary PR reviews
 - **Architecture documentation generator** — `/create-architecture-documentation` with C4 model, Arc42, ADRs, PlantUML, and automated diagram generation
-- **Skills system architecture** — Full architecture doc mapping 58 skills across 7 categories with Mermaid diagrams and architectural decisions
-- **visual-explainer** — HTML diagram generation for architecture, flowcharts, diff reviews, slides, and data tables (by nicobailon)
-- **Apify skills** (5) — Actor development, content analysis, lead generation, market research, trend analysis with full reference docs and actor scripts
 
 ---
 
