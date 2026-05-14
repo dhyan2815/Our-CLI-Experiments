@@ -164,6 +164,8 @@ Each skill follows a consistent pattern:
 
 ## Recent Additions
 
+- **AI/ML research docs (4)** — Portfolio project analysis, GitHub project audit, RAG vs fine-tuning comparison, and project suggestions for 2026
+- **Knowledge graph work tree** — `.understand-anything/` with scan scripts, batch processing outputs, and analyzer inputs (subsequently removed)
 - **Git Flow commands** — `/release` for release branches with semantic versioning and CHANGELOG generation, `/pr-review` for multi-disciplinary PR reviews
 - **Architecture documentation generator** — `/create-architecture-documentation` with C4 model, Arc42, ADRs, PlantUML, and automated diagram generation
 - **Skills system architecture** — Full architecture doc mapping 58 skills across 7 categories with Mermaid diagrams and architectural decisions
