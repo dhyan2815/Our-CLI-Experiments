@@ -33,3 +33,11 @@ type: project
 - [x] Memory entry created
 
 **Commit:** First one (this scan doc)
+
+## Day 2 Status: COMPLETE
+
+- [x] HuggingFace MCP server tested with `hub_repo_search`
+- [x] MCP capabilities documented in `docs/experiments/mcp-exploration-2026-05-17.md`
+- [x] Available tools enumerated (model search, image gen, docs, papers)
+
+**Commit:** Day 2 - MCP exploration
