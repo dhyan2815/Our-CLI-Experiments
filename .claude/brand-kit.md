@@ -116,7 +116,7 @@ No emoji icons in visual elements. No stock illustrations.
 
 ```
 assets/
-  headshot.jpeg           ← Used on CTA slide only
+  headshot.png           ← Used on CTA slide only
   logos/                 ← Brand logos for use in content if needed
   icons/                 ← Any approved icon PNGs
 ```
